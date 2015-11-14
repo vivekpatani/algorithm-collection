@@ -6,26 +6,34 @@
 package com.vivekpatani.calculator;
 
 /**
- * 
+ * This class finds out the modulus of one another.
  */
 public class SimpleModulo {
-	private static float userInput1, userInput2, result;
+	private static int userInput1, userInput2, result1, result2;
 	private static String tag;
-	public SimpleModulo (float userInput1, float userInput2, String tag) {
+	public SimpleModulo (int userInput1, int userInput2, String tag) {
 		this.userInput1 = userInput1;
 		this.userInput2 = userInput2;
 		this.tag = tag;
 		callModulo();
+		System.out.println(tag + ": " + result1+"\n"+tag+": "+result2);
 	}
 	
 	private static void callModulo (){
-		result = userInput1 % userInput2;
-		System.out.println(tag + ": " + result);
+		result1 = userInput1 % userInput2;
+		
 		callModuloInvert();
 	}
 	
+	public int getResult1(){
+		return result1;
+	}
+	
 	private static void callModuloInvert() {
-		result = userInput2 % userInput1;
-		System.out.println(tag + ": " +result);
+		result2 = userInput2 % userInput1;
+	}
+	
+	public int getResult2(){
+		return result2;
 	}
 }

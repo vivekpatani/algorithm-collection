@@ -4,7 +4,8 @@ import com.vivekpatani.Constants.*;
 public class CalculatorMain {
 	
 	private static int userOption;
-	private static float userInput1, userInput2, result;
+	private static double userInput1, userInput2, result;
+	private static boolean zeroResult = false;
 	
 	public CalculatorMain() {
 		for (int i = 0; i < Constants.CALCULATOR_OPTIONS.length - 1; i++) {
@@ -43,16 +44,11 @@ public class CalculatorMain {
 		SimpleMultiplication simpleMultiplicationCall = new SimpleMultiplication(userInput1, userInput2, Constants.CALCULATOR_OPTIONS[2]);
 	}
 	private static void callDivision () {
-		
-		if(zeroErrorHandler(userInput1,userInput2)) {
-			System.out.println(Constants.ERROR_MESSAGE_OTHER);
-		} else {
 			SimpleDivision simpleDivisionCall = new SimpleDivision(userInput1, userInput2, Constants.CALCULATOR_OPTIONS[3]);
-		}
 	}
 	private static void callModulo () {
 		
-		SimpleModulo simpleModuloCall = new SimpleModulo(userInput1, userInput2, Constants.CALCULATOR_OPTIONS[4]);
+		SimpleModulo simpleModuloCall = new SimpleModulo((int)userInput1, (int)userInput2, Constants.CALCULATOR_OPTIONS[4]);
 		}
 	private static void getInput () {
 		
@@ -63,8 +59,4 @@ public class CalculatorMain {
 		
 	}
 	
-	private static boolean zeroErrorHandler(float userInput1, float userInput2){
-		if (userInput1 == 0 || userInput2 == 0) return true;
-		else return false;
-	}
 }

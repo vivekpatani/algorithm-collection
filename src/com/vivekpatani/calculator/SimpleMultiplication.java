@@ -9,17 +9,21 @@ package com.vivekpatani.calculator;
  * 
  */
 public class SimpleMultiplication {	
-		private static float userInput1, userInput2, result;
+		private static double userInput1, userInput2, result;
 		private static String tag;
 		
-		public SimpleMultiplication (float userInput1, float userInput2, String tag) {
+		public SimpleMultiplication (double userInput1, double userInput2, String tag) {
 			this.userInput1 = userInput1;
 			this.userInput2 = userInput2;
 			this.tag = tag;
+			System.out.println(tag + " :" + getResult());
 			callMulitplication();
 		}
 		private static void callMulitplication(){
 			result = userInput1 * userInput2;
-			System.out.println(tag + " :" + result);
+			}
+		
+		public double getResult(){
+			return result;
 		}
 	}
