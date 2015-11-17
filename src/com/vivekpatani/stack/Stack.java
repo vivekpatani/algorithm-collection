@@ -54,16 +54,35 @@ public class Stack {
 	 * The pop method is boolean since we might need it to return boolean while using it another implementation
 	 * such as trees or other such algorithms
 	 */
-	public boolean pop () {
+	public int pop () {
 		if (isEmpty()){
 			System.out.println(Constants.STACK_CONSTANTS[3]);
-			return false;
+			return -1;
 		}
 		else {
-			System.out.println(Constants.STACK_CONSTANTS[1]+": "+stack.get(top));
+			//Use only for testing
+			//System.out.println(Constants.STACK_CONSTANTS[1]+": "+stack.get(top));
+			int poppedElement = stack.get(top);
+			stack.remove(top);
 			top--;
-			return true;
+			return poppedElement;
 		}
+	}
+	
+	/*
+	 * Use to pop k elements together
+	 */
+	
+	public int[] multiPop (int k){
+		int[] poppedElements = new int[k];
+		while (k != 0) {
+			int i = 0;
+			poppedElements[k-1] = pop();
+			k--;
+		}
+		
+		return poppedElements;
+		
 	}
 	
 	/*
