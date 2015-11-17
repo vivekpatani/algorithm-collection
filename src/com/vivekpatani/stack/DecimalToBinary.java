@@ -18,17 +18,16 @@ public class DecimalToBinary {
 	 * Basic Constructor to Call the init method
 	 */
 	private static Stack binaryStack;
+	
 	public DecimalToBinary (){
-		
 		binaryStack = new Stack();
-		init();
 	}
 
 	/*
 	 * This is the basic driver programme in order to convert the input
 	 * to binary
 	 */
-	private static void init() {
+	public static void binaryToDecimal() {
 		
 		int count = 0;
 		System.out.println(Constants.STACK_CONSTANTS[4]);

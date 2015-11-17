@@ -17,7 +17,8 @@ public class ImplementStack {
 	 */
 	public static void main(String[] args) {
 		
-		DecimalToBinary dtb = new DecimalToBinary();
+		DecimalToBinary decimalToBinary = new DecimalToBinary();
+		decimalToBinary.binaryToDecimal();
 		
 		Stack newStack = new Stack();
 		newStack.push(100);

@@ -76,7 +76,6 @@ public class Stack {
 	public int[] multiPop (int k){
 		int[] poppedElements = new int[k];
 		while (k != 0) {
-			int i = 0;
 			poppedElements[k-1] = pop();
 			k--;
 		}
