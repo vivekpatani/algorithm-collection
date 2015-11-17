@@ -13,4 +13,5 @@ public class Constants {
 	public static final String[] CALCULATOR_OPTIONS = {"1. Addition", "2. Subtraction", "3. Multiplication", "4. Division", "5. Modulo","Please Provide The Two Inputs"};
 	public static final String ERROR_MESSAGE_INPUT = "Err! Incorrect Input!";
 	public static final String ERROR_MESSAGE_OTHER = "Err! Something went horribly wrong!";
+	public static final String[] STACK_CONSTANTS = {"Element Succesfully Added", "Element Successfully Popped", "Top Most Element"};
 }
