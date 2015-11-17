@@ -3,9 +3,9 @@
  * ImplementStack.java
  * {Algorithms 0.: Living in Beta}
  */
-package com.vivekpatani.Stack;
+package com.vivekpatani.stack;
 
-import com.vivekpatani.Constants.Constants;
+import com.vivekpatani.constants.Constants;
 
 /**
  * 

@@ -1,7 +1,7 @@
-package com.vivekpatani.Launcher;
+package com.vivekpatani.launcher;
 
-import com.vivekpatani.Constants.*;
 import com.vivekpatani.calculator.CalculatorMain;
+import com.vivekpatani.constants.*;
 
 public class Launcher {
 

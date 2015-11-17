@@ -1,5 +1,5 @@
 package com.vivekpatani.calculator;
-import com.vivekpatani.Constants.*;
+import com.vivekpatani.constants.*;
 
 public class CalculatorMain {
 	

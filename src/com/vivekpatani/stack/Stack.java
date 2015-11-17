@@ -3,11 +3,11 @@
  * Stack.java
  * {Algorithms 0.: Living in Beta}
  */
-package com.vivekpatani.Stack;
+package com.vivekpatani.stack;
 
 import java.util.ArrayList;
 
-import com.vivekpatani.Constants.Constants;
+import com.vivekpatani.constants.Constants;
 
 /**
  * Simple implementation of a Stack Data Structure

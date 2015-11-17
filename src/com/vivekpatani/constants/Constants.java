@@ -1,4 +1,4 @@
-package com.vivekpatani.Constants;
+package com.vivekpatani.constants;
 
 import java.util.Scanner;
 

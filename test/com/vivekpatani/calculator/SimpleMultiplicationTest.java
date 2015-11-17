@@ -9,8 +9,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import com.vivekpatani.Constants.Constants;
 import com.vivekpatani.calculator.SimpleMultiplication;
+import com.vivekpatani.constants.Constants;
 
 /**
  * 
