@@ -32,7 +32,6 @@ public class Stack {
 	public void push (int dataElement) {
 		top++;
 		stack.add(dataElement);
-		System.out.println("Top: "+top+"\nElement:"+stack.get(top));
 		System.out.println(Constants.STACK_CONSTANTS[0] + ": " + dataElement);
 		
 	}
@@ -41,18 +40,27 @@ public class Stack {
 	 * This returns the top most elements of the stack
 	 */
 	public int peek () {
-		return stack.get(top);
+		
+		if (isEmpty()){
+			return -1;
+		} else {
+			return stack.get(top);
+		}
 	}
 	
 	/*
 	 * This is used to remove the top most element
 	 * It also should check for underflow while popping
+	 * The pop method is boolean since we might need it to return boolean while using it another implementation
+	 * such as trees or other such algorithms
 	 */
 	public boolean pop () {
 		if (isEmpty()){
+			System.out.println(Constants.STACK_CONSTANTS[3]);
 			return false;
 		}
 		else {
+			System.out.println(Constants.STACK_CONSTANTS[1]+": "+stack.get(top));
 			top--;
 			return true;
 		}
