@@ -93,4 +93,11 @@ public class Stack {
 		else return false;
 	}
 	
+	/*
+	 * Used to destroy the complete Stack.
+	 */
+	public void destroyStack () {
+		stack.clear();
+	}
+	
 }
