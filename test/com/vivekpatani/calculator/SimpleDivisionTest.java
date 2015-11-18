@@ -10,7 +10,6 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import com.vivekpatani.calculator.SimpleDivision;
-import com.vivekpatani.constants.Constants;
 
 /**
  * 
@@ -22,7 +21,7 @@ public class SimpleDivisionTest {
 	 */
 	@Test
 	public void testSimpleDivision() {
-		SimpleDivision callSimpleDivision = new SimpleDivision(100,10,Constants.CALCULATOR_OPTIONS[3]);
+		SimpleDivision callSimpleDivision = new SimpleDivision(100,10,ConstantsCalculator.CALCULATOR_OPTIONS[3]);
 		double actualResult1 =  10.0;
 		double actualResult2 = 0.1;
 		assertEquals(actualResult1,callSimpleDivision.getResult1(),0.0);

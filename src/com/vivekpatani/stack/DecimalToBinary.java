@@ -5,7 +5,7 @@
  */
 package com.vivekpatani.stack;
 
-import com.vivekpatani.constants.Constants;
+import com.vivekpatani.commonconstants.Constants;
 
 /**
  * This is conversion of decimal to binary using a stack.

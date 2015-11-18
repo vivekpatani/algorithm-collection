@@ -5,7 +5,7 @@
  */
 package com.vivekpatani.calculator;
 
-import com.vivekpatani.constants.Constants;
+import com.vivekpatani.commonconstants.Constants;
 
 /**
  * This code executes simple Division.

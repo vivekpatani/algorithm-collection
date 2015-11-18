@@ -7,7 +7,7 @@ package com.vivekpatani.stack;
 
 import java.util.ArrayList;
 
-import com.vivekpatani.constants.Constants;
+import com.vivekpatani.commonconstants.Constants;
 
 /**
  * Simple implementation of a Stack Data Structure

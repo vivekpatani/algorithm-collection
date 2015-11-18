@@ -10,8 +10,6 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import com.vivekpatani.calculator.SimpleAddition;
-import com.vivekpatani.constants.Constants;
-
 /**
  * 
  */
@@ -22,7 +20,7 @@ public class SimpleAdditionTest {
 	 */
 	@Test
 	public void testSimpleAddition() {
-		SimpleAddition callSimpleAddition = new SimpleAddition (12,12,Constants.CALCULATOR_OPTIONS[0]);
+		SimpleAddition callSimpleAddition = new SimpleAddition (12,12,ConstantsCalculator.CALCULATOR_OPTIONS[0]);
 		double actualResult =  24.0;
 		assertEquals(actualResult,callSimpleAddition.getResult(),0.0);
 	}

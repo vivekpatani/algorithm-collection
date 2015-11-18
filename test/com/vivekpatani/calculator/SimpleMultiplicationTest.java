@@ -10,7 +10,6 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import com.vivekpatani.calculator.SimpleMultiplication;
-import com.vivekpatani.constants.Constants;
 
 /**
  * 
@@ -19,7 +18,7 @@ public class SimpleMultiplicationTest {
 
 	@Test
 	public void test() {
-		SimpleMultiplication callSimpleMultiplication = new SimpleMultiplication(8,3,Constants.CALCULATOR_OPTIONS[3]);
+		SimpleMultiplication callSimpleMultiplication = new SimpleMultiplication(8,3,ConstantsCalculator.CALCULATOR_OPTIONS[3]);
 		double actualResult =  24.0;
 		assertEquals(actualResult,callSimpleMultiplication.getResult(),0);
 	}

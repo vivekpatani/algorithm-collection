@@ -10,7 +10,6 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import com.vivekpatani.calculator.SimpleModulo;
-import com.vivekpatani.constants.Constants;
 
 /**
  * 
@@ -22,7 +21,7 @@ public class SimpleModuloTest {
 	 */
 	@Test
 	public void testSimpleModulo() {
-		SimpleModulo callSimpleModulo = new SimpleModulo(8,3,Constants.CALCULATOR_OPTIONS[4]);
+		SimpleModulo callSimpleModulo = new SimpleModulo(8,3,ConstantsCalculator.CALCULATOR_OPTIONS[4]);
 		int actualResult1 =  2;
 		int actualResult2 = 3;
 		assertEquals(actualResult1,callSimpleModulo.getResult1(),0);

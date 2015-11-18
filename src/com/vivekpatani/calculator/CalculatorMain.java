@@ -1,5 +1,5 @@
 package com.vivekpatani.calculator;
-import com.vivekpatani.constants.*;
+import com.vivekpatani.commonconstants.*;
 
 public class CalculatorMain {
 	
@@ -8,8 +8,8 @@ public class CalculatorMain {
 	private static boolean zeroResult = false;
 	
 	public CalculatorMain() {
-		for (int i = 0; i < Constants.CALCULATOR_OPTIONS.length - 1; i++) {
-			System.out.println(Constants.CALCULATOR_OPTIONS[i]);
+		for (int i = 0; i < ConstantsCalculator.CALCULATOR_OPTIONS.length - 1; i++) {
+			System.out.println(ConstantsCalculator.CALCULATOR_OPTIONS[i]);
 		}
 			 userOption = Constants.sc.nextInt();
 			 getInput();
@@ -35,24 +35,25 @@ public class CalculatorMain {
 		}
 	
 	private static void callAddition () {
-			SimpleAddition simpleAdditionCall = new SimpleAddition(userInput1,userInput2,Constants.CALCULATOR_OPTIONS[0]);
+			SimpleAddition simpleAdditionCall = new SimpleAddition(userInput1,userInput2,ConstantsCalculator.CALCULATOR_OPTIONS[0]);
 	}
 	private static void callSubtraction () {
-		SimpleSubtraction simpleSubtractionCall = new SimpleSubtraction(userInput1,userInput2,Constants.CALCULATOR_OPTIONS[1]);
+		SimpleSubtraction simpleSubtractionCall = new SimpleSubtraction(userInput1,userInput2,ConstantsCalculator.CALCULATOR_OPTIONS[1]);
 	}
 	private static void callMultiplication () {
-		SimpleMultiplication simpleMultiplicationCall = new SimpleMultiplication(userInput1, userInput2, Constants.CALCULATOR_OPTIONS[2]);
+		SimpleMultiplication simpleMultiplicationCall = new SimpleMultiplication(userInput1, userInput2, ConstantsCalculator.CALCULATOR_OPTIONS[2]);
 	}
 	private static void callDivision () {
-			SimpleDivision simpleDivisionCall = new SimpleDivision(userInput1, userInput2, Constants.CALCULATOR_OPTIONS[3]);
+			SimpleDivision simpleDivisionCall = new SimpleDivision(userInput1, userInput2, ConstantsCalculator.CALCULATOR_OPTIONS[3]);
 	}
 	private static void callModulo () {
 		
-		SimpleModulo simpleModuloCall = new SimpleModulo((int)userInput1, (int)userInput2, Constants.CALCULATOR_OPTIONS[4]);
+		SimpleModulo simpleModuloCall = new SimpleModulo((int)userInput1, (int)userInput2, ConstantsCalculator.CALCULATOR_OPTIONS[4]);
 		}
+	
 	private static void getInput () {
 		
-		System.out.println(Constants.CALCULATOR_OPTIONS[5]);
+		System.out.println(ConstantsCalculator.CALCULATOR_OPTIONS[5]);
 		userInput1 = Constants.sc.nextInt();
 		System.out.println();
 		userInput2 = Constants.sc.nextInt();
