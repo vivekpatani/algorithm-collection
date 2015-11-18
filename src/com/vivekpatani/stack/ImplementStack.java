@@ -40,6 +40,8 @@ public class ImplementStack {
 		newStack.pop();
 		
 		System.out.println(Constants.STACK_CONSTANTS[2] +": "+ newStack.peek());
+		
+		ReverseString reverseString = new ReverseString();
 	}
 
 }
