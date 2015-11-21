@@ -20,6 +20,8 @@ public class NodeLinkedList {
 	
 	NodeLinkedList (int value){
 		setValue (value);
+		next = null;
+		prev = null;
 	}
 	
 	public NodeLinkedList getNextRef (){

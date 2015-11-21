@@ -25,6 +25,7 @@ public class SinglyLinkedList {
 		sLL.addAtEnd(6);
 		sLL.addAtEnd(7);
 		sLL.addAtStart(0);
+		sLL.addAfterValue(4,9);
 		displayList();
 	}
 	
@@ -58,6 +59,23 @@ public class SinglyLinkedList {
 		}
 	}
 	
+	public boolean addAfterValue (int value, int indexValue){
+		NodeLinkedList newNode = new NodeLinkedList(value);
+		NodeLinkedList currentNode = head;
+		
+		while (currentNode.getValue() != indexValue && currentNode.getNextRef()!=null){
+			currentNode = currentNode.getNextRef();
+		}
+		
+		if (currentNode.getNextRef() == null) {
+			return false;
+		} else {
+			newNode.setNextRef(currentNode.getNextRef());
+			currentNode.setNextRef(newNode);
+		}
+		return true;
+	}
+	
 	/*
 	 * This is used to add a Node at the end of the LinkedList
 	 */
@@ -83,7 +101,7 @@ public class SinglyLinkedList {
 	 */
 	public static void displayList (){
 		currentNode = head;
-		System.out.println();
+		System.out.println(ConstantsLinkedList.LinkedListConstants[0]);
 		while (currentNode != null) {
 			System.out.print(" " + currentNode.getValue());
 			currentNode = currentNode.getNextRef();
