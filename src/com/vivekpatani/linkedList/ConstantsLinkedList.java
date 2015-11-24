@@ -6,7 +6,8 @@
 package com.vivekpatani.linkedList;
 
 /**
- * 
+ * This class is used to store all constants
+ * This is used to avoid Magic Numbrs and Strings
  */
 public class ConstantsLinkedList {
 	
