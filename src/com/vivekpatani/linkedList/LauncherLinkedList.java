@@ -1,15 +1,15 @@
 /**
  * Vivek Patani {FlipSwitch}
- * Launcher.java
+ * LauncherLinkedList.java
  * {Algorithms 0.: Living in Beta}
  */
-package com.vivekpatani.queue;
+package com.vivekpatani.linkedList;
 
 /**
- * This is the Launcher for Queues
+ * 
  */
-public class Launcher {
+public class LauncherLinkedList {
 	
 	//Silence is Golden.
-	
+
 }
