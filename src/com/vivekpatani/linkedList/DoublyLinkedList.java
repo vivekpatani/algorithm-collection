@@ -11,9 +11,10 @@ package com.vivekpatani.linkedList;
 public class DoublyLinkedList {
 
 	private static NodeLinkedList head, tail, currentNode;
+	private static int count = 0;
 	
 	/**
-	 * The driver method used to run the class
+	 * Driver Method to control the flow of Douby Linked List Implementation
 	 * @param args
 	 */
 	public static void main(String[] args){
@@ -29,18 +30,12 @@ public class DoublyLinkedList {
 		traverseBackward();
 	}
 	
+	/**
+	 * Basic Constructor
+	 */
 	public DoublyLinkedList(){
 		head = null;
 		tail = null;
-	}
-	
-	/**
-	 * This is use to just assign the header when the LinkedList is empty.
-	 * @param newNode
-	 */
-	public static void setHead(NodeLinkedList newNode){
-		head = newNode;
-		tail = newNode;
 	}
 	
 	/**
@@ -57,23 +52,6 @@ public class DoublyLinkedList {
 			head.setNextRef(head);
 			head = newNode;
 			head.setPrevRef(null);
-		}
-	}
-	
-	/**
-	 * Method used to add a node at the end of the LinkedList
-	 * @param value
-	 */
-	public void addAtEnd (int value) {
-		NodeLinkedList newNode = new NodeLinkedList(value);
-		
-		if (isEmpty()){
-			head = newNode;
-			tail = newNode;
-		} else {
-			tail.setNextRef(newNode);
-			newNode.setPrevRef(tail);
-			tail = newNode;
 		}
 	}
 	
@@ -107,29 +85,29 @@ public class DoublyLinkedList {
 	}
 	
 	/**
-	 * Method used to the LinkedList in a reverse manner
+	 * Method used to add a node at the end of the LinkedList
+	 * @param value
 	 */
-	public static void traverseBackward () {
+	public void addAtEnd (int value) {
+		NodeLinkedList newNode = new NodeLinkedList(value);
 		
-		System.out.println("\n"+ConstantsLinkedList.LinkedListConstants[1]);
-		currentNode = tail;
-		while (currentNode!=null) {
-			System.out.print(" "+currentNode.getValue());
-			currentNode = currentNode.getPrevRef();
+		if (isEmpty()){
+			head = newNode;
+			tail = newNode;
+		} else {
+			tail.setNextRef(newNode);
+			newNode.setPrevRef(tail);
+			tail = newNode;
 		}
 	}
 	
 	/**
-	 * Method used to the LinkedList in a forward manner
+	 * Checks whether if the LinkedList is empty or not
+	 * The idea is to check whether if head is null or not
 	 */
-	public static void traverseForward (){
-		
-		System.out.println(ConstantsLinkedList.LinkedListConstants[0]);
-		currentNode = head;
-		while (currentNode!=null){
-			System.out.print(" "+currentNode.getValue());
-			currentNode = currentNode.getNextRef();
-		}
+	private static boolean isEmpty() {
+		if(head == null) return true;
+		return false;
 	}
 	
 	/**
@@ -160,12 +138,48 @@ public class DoublyLinkedList {
 	}
 	
 	/**
-	 * Checks whether if the LinkedList is empty or not
-	 * The idea is to check whether if head is null or not
+	 * Method used to the LinkedList in a reverse manner
 	 */
-	private static boolean isEmpty() {
-		if(head == null) return true;
-		return false;
+	public static void traverseBackward () {
+		
+		System.out.println("\n"+ConstantsLinkedList.LinkedListConstants[1]);
+		currentNode = tail;
+		while (currentNode!=null) {
+			System.out.print(" "+currentNode.getValue());
+			currentNode = currentNode.getPrevRef();
+		}
 	}
 	
+	/**
+	 * Method used to the LinkedList in a forward manner
+	 */
+	public static void traverseForward (){
+		
+		System.out.println(ConstantsLinkedList.LinkedListConstants[0]);
+		currentNode = head;
+		while (currentNode!=null){
+			System.out.print(" "+currentNode.getValue());
+			currentNode = currentNode.getNextRef();
+		}
+	}
+	/**
+	 * This is use to just assign the header when the LinkedList is empty.
+	 * @param newNode
+	 */
+	public static void setHead(NodeLinkedList newNode){
+		head = tail = newNode;
+	}
+	
+	/**
+	 * Method to know the number of Elements in the LinkedList
+	 */
+	public int getNumberOfElments(){	
+		currentNode = head;
+		while (currentNode!=null){
+			currentNode = currentNode.getNextRef();
+			count++;
+		}
+		
+		return count;
+	}
 }
