@@ -10,7 +10,23 @@ package com.vivekpatani.linkedList;
  */
 public class NodeLinkedList {
 	
-	private int value;
+	private int value, visited;
+	/**
+	 * Returns 0 when not visited and 1 when visited
+	 * @return the visited
+	 */
+	public int getVisited() {
+		return visited;
+	}
+
+	/**
+	 * Method used to set the visited node
+	 * @param visited the visited to set
+	 */
+	public void setVisited(int visited) {
+		this.visited = visited;
+	}
+
 	private NodeLinkedList next,prev;
 	
 	/**
@@ -19,6 +35,7 @@ public class NodeLinkedList {
 	NodeLinkedList (){
 		next = null;
 		prev = null;
+		visited = 0;
 	}
 	
 	/**
@@ -29,6 +46,7 @@ public class NodeLinkedList {
 		setValue (value);
 		next = null;
 		prev = null;
+		visited = 0;
 	}
 	
 	/**

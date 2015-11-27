@@ -139,4 +139,38 @@ public class SinglyLinkedList {
 		}	
 		return count;
 	}
+	
+	public NodeLinkedList removeNode (NodeLinkedList node){
+		
+		if (node == head) head = head.getNextRef();
+		else {
+			currentNode = head;
+			while (currentNode.getNextRef()!= node){
+				currentNode = currentNode.getNextRef();
+			}
+			
+			currentNode.setNextRef(currentNode.getNextRef().getNextRef());
+			
+		}
+		return currentNode.getNextRef();
+	}
+	
+	/**
+	 * Method used to remove duplicates from the LinkedList
+	 */
+	public void removeDuplicates() {
+		
+		NodeLinkedList tempNode;
+		currentNode = head;
+		while(currentNode != null){
+			tempNode = currentNode.getNextRef();
+				while (tempNode!=null){
+					if(currentNode.getValue() == tempNode.getValue()){
+						removeNode(tempNode);
+					}
+					tempNode = tempNode.getNextRef();
+				}
+				currentNode = currentNode.getNextRef();
+		}
+	}
 }
