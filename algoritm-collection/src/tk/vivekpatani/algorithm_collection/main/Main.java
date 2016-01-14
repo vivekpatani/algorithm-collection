@@ -5,11 +5,17 @@
  */
 package tk.vivekpatani.algorithm_collection.main;
 
+//Imports made to check the CPU Load
+import java.text.NumberFormat;
+
+
 /**
- * 
+ * The Driver Class for the whole program
  */
 public class Main {
-
+	
+	//The optionSelect variable is the option input by user
+	private static int optionSelect;
 	/**
 	 * @param args
 	 */
@@ -40,8 +46,47 @@ public class Main {
 	
 	private static void optionChooser(){
 		
-		System.out.println("Choose your option, choose it wisely");
-		System.out.println("1. Implementing a Stack Data Structure");
+		do {
+			System.out.println("Choose your option, choose it wisely");
+			System.out.println(ConstantsMain.OPTION_MAIN[0]);
+			System.out.print(ConstantsMain.OPTION_MAIN[1]);
+			
+			//Asking the user for their options
+			optionSelect = ConstantsMain.scanner.nextInt();
+			
+			switch(optionSelect){
+			
+			case 1: {
+				System.out.println("Option 1: Stack");
+			}
+			
+			default: System.out.println("Err! Bad Input!");
+			}
+			
+			System.out.println("\n\n"+ConstantsMain.CPU_LOAD + getCpuLoad());
+			
+		} while(optionSelect != 0);
 	}
+	
+	/**
+	 * This is is to get the CPU Load on a machine
+	 * @return
+	 */
+	private static StringBuilder getCpuLoad() {
+		Runtime runtime = Runtime.getRuntime();
 
+		NumberFormat format = NumberFormat.getInstance();
+
+		StringBuilder memoryStats = new StringBuilder();
+		long maxMemory = runtime.maxMemory();
+		long allocatedMemory = runtime.totalMemory();
+		long freeMemory = runtime.freeMemory();
+
+		memoryStats.append("\nFree Memory: " + format.format(freeMemory / 1024) + "\n");
+		memoryStats.append("Allocated Memory: " + format.format(allocatedMemory / 1024) + "\n");
+		memoryStats.append("Max Memory: " + format.format(maxMemory / 1024) + "\n");
+		memoryStats.append("Total Free Memory: " + format.format((freeMemory + (maxMemory - allocatedMemory)) / 1024) + "\n");
+		
+		return memoryStats;
+	}
 }
