@@ -8,6 +8,8 @@ package tk.vivekpatani.algorithm_collection.main;
 //Imports made to check the CPU Load
 import java.text.NumberFormat;
 
+import tk.vivekpatani.algortihm_collection.stack.StackMain;
+
 
 /**
  * The Driver Class for the whole program
@@ -48,16 +50,23 @@ public class Main {
 		
 		do {
 			System.out.println("Choose your option, choose it wisely");
-			System.out.println(ConstantsMain.OPTION_MAIN[0]);
-			System.out.print(ConstantsMain.OPTION_MAIN[1]);
+			System.out.println(ConstantsMain.OPTIONS_MAIN[0]);
+			System.out.print(ConstantsMain.OPTIONS_MAIN[1]);
 			
 			//Asking the user for their options
 			optionSelect = ConstantsMain.scanner.nextInt();
 			
 			switch(optionSelect){
 			
+			case 0: {
+				//Exit Case, Do nothing.
+				break;
+			}
+			
 			case 1: {
 				System.out.println("Option 1: Stack");
+				StackMain.init();
+				break;
 			}
 			
 			default: System.out.println("Err! Bad Input!");
