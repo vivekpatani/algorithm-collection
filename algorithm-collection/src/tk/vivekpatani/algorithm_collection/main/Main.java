@@ -48,8 +48,7 @@ public class Main {
 	private static void optionChooser(){
 		
 		do {
-			//The options to select from
-			clearScreen();
+			
 			System.out.println("Choose your option, choose it wisely");
 			System.out.println(ConstantsMain.OPTIONS_MAIN[0]);
 			
@@ -100,13 +99,4 @@ public class Main {
 		
 		return memoryStats;
 	}
-	
-	/**  
-	 * This method clear the current screen.
-	 * Source: http://techno-terminal.blogspot.in/2014/12/clear-command-line-console-and-bold.html
-	 */  
-	   public static void clearScreen() {  
-	    System.out.print("\033[H\033[2J");  
-	    System.out.flush();  
-	   }  
 }
