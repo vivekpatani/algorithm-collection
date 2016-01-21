@@ -7,7 +7,6 @@ package tk.vivekpatani.algortihm_collection.stack;
 
 import java.util.ArrayList;
 
-
 /**
  * This is a simple implementation of the Stack.
  * @param

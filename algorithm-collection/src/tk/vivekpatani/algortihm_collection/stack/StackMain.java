@@ -37,7 +37,6 @@ public class StackMain {
 			input = ConstantsMain.scanner.nextInt();
 			
 			if(input==1){
-				
 				//Function to perform push operation
 				System.out.println("Push an Element:");
 				stackInt.push(ConstantsMain.scanner.nextInt());
