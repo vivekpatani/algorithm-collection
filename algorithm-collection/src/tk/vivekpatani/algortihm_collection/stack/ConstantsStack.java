@@ -12,5 +12,5 @@ public class ConstantsStack {
 	
 	public static final String[] OPTIONS_STACK = new String[] {"1 Simple Stack Demonstration (Integer)","2. Simple Stack Demonstration (String)", "3 Simple Stack Demonstration (Character)", "4. Reverse a String", "5. Convert Number to Binary"};
 	public static final String[] OPTIONS_STACK_TYPE = new String[] {"Input Integers", "Input String", "Input Character", "Input Object"};
-	public static final String[] OPTIONS_STACK_INT = new String[] {"1. Add Elements, 2. Push Element", "3.Pop Element", "4. Peek", "5. Multipop", "6. Destroy", "7. Exit"};
+	public static final String[] OPTIONS_STACK_INT = new String[] {"1. Add/Push Elements", "2. Remove/Pop Element", "3. Peek", "4. Multipop", "5. Destroy", "6. Exit"};	
 }

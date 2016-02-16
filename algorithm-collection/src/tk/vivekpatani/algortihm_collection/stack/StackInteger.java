@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 /**
  * This is a simple implementation of the Stack.
+ * LIFO (Last In First Out)
  * @param
  */
 public class StackInteger {
@@ -99,7 +100,11 @@ public class StackInteger {
 				return poppedElement;
 		}
 	}
-
+	
+	boolean destroyArray(){
+		stack.clear();
+		return true;
+	}
 	
 	/**
 	 * Method to return the stack

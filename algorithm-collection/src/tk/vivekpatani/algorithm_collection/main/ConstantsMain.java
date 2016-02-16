@@ -12,7 +12,7 @@ import java.util.Scanner;
  */
 public class ConstantsMain {
 	
-	public static final String OPTIONS_MAIN [] = {"0. Exit", "1. Implementing a Stack Data Structure"};
+	public static final String OPTIONS_MAIN [] = new String[] {"0. Exit", "1. Implementing a Stack Data Structure"};
 	public static final String CPU_LOAD = "The Current CPU Load is: ";
 	public static final Scanner scanner = new Scanner(System.in);
 	public static final String OPTION_EXIT = "Type Exit to Stop Input";
