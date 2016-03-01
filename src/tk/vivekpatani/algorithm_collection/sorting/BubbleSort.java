@@ -22,7 +22,7 @@ public class BubbleSort {
 		for (int i = 0; i < n; i++) {
 			arr[i] = ConstantsMain.scanner.nextInt();
 		}
-		sort(arr);
+		sortOpt(arr);
 		printArray(arr);
 	}
 	
@@ -32,6 +32,21 @@ public class BubbleSort {
 			for(int j=0;j<arr.length-i-1;j++)
 				if(arr[j]>arr[j+1])
 					swap(j,j+1, arr);
+		return arr;
+	}
+	
+	public static int[] sortOpt(int[] arr){
+		
+		boolean flag = false;
+		for (int i = 0; i < arr.length; i++) {
+			for (int j=0;j<arr.length-1-i;j++){
+				if(arr[j]>arr[j+1]){
+					swap(j,j+1,arr);
+					flag = true;
+					}
+				}
+			if(flag==false) break;
+		}
 		return arr;
 	}
 	

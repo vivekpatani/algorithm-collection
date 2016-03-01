@@ -7,6 +7,7 @@ package tk.vivekpatani.algorithm_collection.sorting;
 
 import static org.junit.Assert.assertArrayEquals;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -44,5 +45,10 @@ public class BubbleSortTest {
         testClass.sort(numbers);
 
         assertArrayEquals(new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }, numbers);
+    }
+    
+    @After
+    public void tearDown(){
+    	testClass = null;
     }
 }
