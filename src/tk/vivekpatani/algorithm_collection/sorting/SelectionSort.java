@@ -6,6 +6,7 @@
 package tk.vivekpatani.algorithm_collection.sorting;
 
 import java.util.ArrayList;
+import java.util.function.Consumer;
 
 import tk.vivekpatani.algorithm_collection.main.ConstantsMain;
 
@@ -35,8 +36,14 @@ public class SelectionSort {
 	public static void display(ArrayList<Integer> data_list){
 		
 		System.out.println("List:");
-		data_list.forEach((element) -> {
-			System.out.print(element+" ");
+		data_list.forEach(new Consumer<Integer>() {
+			/* (non-Javadoc)
+			 * @see java.util.function.Consumer#accept(java.lang.Object)
+			 */
+			@Override
+			public void accept(Integer element) {
+				System.out.print(element+" ");
+			}
 		});
 		System.out.println();
 	}
