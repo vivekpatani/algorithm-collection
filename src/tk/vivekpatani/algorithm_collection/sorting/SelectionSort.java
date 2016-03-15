@@ -14,30 +14,52 @@ import tk.vivekpatani.algorithm_collection.main.ConstantsMain;
  */
 public class SelectionSort {
 	
-	public static ArrayList<Integer> takeInput(ArrayList<Integer> data_list){
+	static int[] data_list;
+	
+	public static void main(String args[]){
+		System.out.println("Insertion Sort");
+		data_list = takeInput(data_list);
+		data_list = sort(data_list);
+		display(data_list);
+	}
+	
+	public static int[] takeInput(int[] data_list){
 		
 		System.out.println("Please Enter The Size of the Data: ");
 		int n = ConstantsMain.scanner.nextInt();
 		
+		data_list = new int[n];
 		System.out.println("Please Enter The Data: ");
 		for(int i=0;i<n;i++){
-			int data = ConstantsMain.scanner.nextInt();
-			data_list.add(data);
+			data_list[i] = ConstantsMain.scanner.nextInt();
 			//System.out.println(data+" Added Successfully!");
 		}
 		return data_list;
 	}
 	
-	public static ArrayList<Integer> sort(ArrayList<Integer> data_list){
+	public static int[] sort(int[] data_list){
+		
+		for(int i=0;i<data_list.length-1;i++){
+			int min_index = i;
+			for(int j=i+1;j<data_list.length;j++){
+				if (data_list[j] < data_list[min_index]){
+					min_index = j;
+				}
+			}
+			int temp = data_list[min_index];
+			data_list[min_index] = data_list[i];
+			data_list[i] = temp;
+		}
+		
 		return data_list;
 	}
 	
-	public static void display(ArrayList<Integer> data_list){
+	public static void display(int[] data_list){
 		
 		System.out.println("List:");
-		data_list.forEach((element) -> {
-			System.out.print(element+" ");
-		});
+		for(int i=0;i<data_list.length;i++){
+			System.out.print(data_list[i]+" ");
+		}
 		System.out.println();
 	}
 

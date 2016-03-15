@@ -5,6 +5,7 @@
  */
 package tk.vivekpatani.algorithm_collection.sorting;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
@@ -27,72 +28,25 @@ public class SelectionSortTest {
 
     @Test
     public void selectionSortEx1TestSuccess() {
-        
-    	ArrayList<Integer> numbers = new ArrayList<Integer>();
-    	numbers.add(1);
-    	numbers.add(7);
-    	numbers.add(99);
-    	numbers.add(2);
-    	numbers.add(0);
-    	numbers.add(12);
-    	numbers.add(15);
-    	
-    	ArrayList<Integer> result = numbers;
+        int[] numbers = new int[] { 1, 7, 99, 2, 0, 12, 15 };
         testClass.sort(numbers);
-        
-        Collections.sort(result);
-        
-        assertEquals(result, numbers);
+
+        assertArrayEquals(new int[] { 0, 1, 2, 7, 12, 15, 99 }, numbers);
     }
 
     @Test
     public void selectionSortEx2TestSuccess() {
-        
-    	ArrayList<Integer> numbers = new ArrayList<Integer>();
-    	numbers.add(8);
-    	numbers.add(5);
-    	numbers.add(3);
-    	numbers.add(1);
-    	numbers.add(9);
-    	numbers.add(6);
-    	numbers.add(0);
-    	numbers.add(7);
-    	numbers.add(4);
-    	numbers.add(2);
-    	numbers.add(5);
-    	
-    	testClass.sort(numbers);
-
-        ArrayList<Integer> result = numbers;
+        int[] numbers = new int[] { 8, 5, 3, 1, 9, 6, 0, 7, 4, 2, 5 };
         testClass.sort(numbers);
-        
-        Collections.sort(result);
-        
-        assertEquals(result, numbers);
+
+        assertArrayEquals(new int[] { 0, 1, 2, 3, 4, 5, 5, 6, 7, 8, 9 }, numbers);
     }
-    
+
     @Test
     public void selectionSortEx3TestSuccess() {
-    	ArrayList<Integer> numbers = new ArrayList<Integer>();
-    	numbers.add(10);
-    	numbers.add(9);
-    	numbers.add(8);
-    	numbers.add(7);
-    	numbers.add(6);
-    	numbers.add(5);
-    	numbers.add(4);
-    	numbers.add(3);
-    	numbers.add(2);
-    	numbers.add(1);
-    	numbers.add(0);
-    	
-    	testClass.sort(numbers);
-
-        ArrayList<Integer> result = numbers;
+        int[] numbers = new int[] { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 };
         testClass.sort(numbers);
-        
-        Collections.sort(result);
-        
-        assertEquals(result, numbers);
+
+        assertArrayEquals(new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }, numbers);
     }
 }
