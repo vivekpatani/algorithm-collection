@@ -80,7 +80,7 @@ public class MergeSort {
 		
 		System.out.println("List:");
 		for(int i=0;i<data_list.length;i++)
-			System.out.println(data_list[i]);
+			System.out.print(data_list[i]+" ");
 		System.out.println();
 	}
 
