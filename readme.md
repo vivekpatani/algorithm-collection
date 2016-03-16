@@ -1,5 +1,1 @@
-[![Code Climate](https://codeclimate.com/github/vivekpatani/algorithm-collection/badges/gpa.svg)](https://codeclimate.com/github/vivekpatani/algorithm-collection)
-
-[![Test Coverage](https://codeclimate.com/github/vivekpatani/algorithm-collection/badges/coverage.svg)](https://codeclimate.com/github/vivekpatani/algorithm-collection/coverage)
-
-[![Issue Count](https://codeclimate.com/github/vivekpatani/algorithm-collection/badges/issue_count.svg)](https://codeclimate.com/github/vivekpatani/algorithm-collection)
+[![Build Status](https://semaphoreci.com/api/v1/vivekpatani/algorithm-collection/branches/master/badge.svg)](https://semaphoreci.com/vivekpatani/algorithm-collection)
