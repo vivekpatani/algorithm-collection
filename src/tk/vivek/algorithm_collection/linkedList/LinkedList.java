@@ -90,4 +90,12 @@ public class LinkedList {
 			return true;
 		else return false;
 	}
+	
+	public Node getHead(){
+		return head;
+	}
+	
+	public Node getTail(){
+		return tail;
+	}
 }
