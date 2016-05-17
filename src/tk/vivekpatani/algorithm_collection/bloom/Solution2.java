@@ -1,3 +1,4 @@
+package tk.vivekpatani.algorithm_collection.bloom;
 class Solution2{
     public static void main(String[] args){
         int n = 15;

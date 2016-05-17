@@ -1,3 +1,4 @@
+package tk.vivekpatani.algorithm_collection.bloom;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 class Soltuion3{
