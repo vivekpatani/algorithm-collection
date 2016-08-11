@@ -1,4 +1,4 @@
-package misc.linkedlist;
+package datastructures.linkedlist;
 
 public class ConstantsLinkedList {
 	
