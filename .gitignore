@@ -108,3 +108,10 @@ local.properties
 
 # Code Recommenders
 .recommenders/
+
+# ===================================================
+# FOR OLD FILES
+# ===================================================
+
+# Old Files
+/deprecated
