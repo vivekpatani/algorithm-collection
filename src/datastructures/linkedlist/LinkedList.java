@@ -117,7 +117,7 @@ public class LinkedList<E> {
 	 * @return
 	 */
 	public boolean addAtBegining(E data) {
-		
+
 		// If the List is empty, initialise it
 		if (isLinkedListEmpty()) {
 			root.setData(data);
@@ -132,6 +132,128 @@ public class LinkedList<E> {
 			root.setPrev(newNode);
 			root = newNode;
 
+			return true;
+		}
+	}
+
+	/**
+	 * First Element of the LinkedList is removed.
+	 * 
+	 * @return
+	 */
+	public boolean removeFirst() {
+
+		// If the List is Empty.
+		if (isLinkedListEmpty())
+			return false;
+		else if (size == 1) {
+			// If List contains only one element, destroy the LinkedList.
+			destroy();
+			size--;
+			return true;
+		} else {
+
+			// Else replace root with the next element of root.
+			Node<E> temp = root.getNext();
+			root.setNext(null);
+			root = temp;
+			root.setPrev(null);
+
+			return true;
+		}
+	}
+
+	/**
+	 * Remove the First Instance of the Element.
+	 * @param data
+	 * @return
+	 */
+	public boolean removeFirstInstance(E data) {
+
+		// If List is empty.
+		if (isLinkedListEmpty())
+			return false;
+
+		else if (size == 1) {
+			// If List contains only one element, check if it is the same
+			// element.
+			if (root.getData() == data) {
+				destroy();
+				return true;
+			} else
+				// The user entered an invalid element.
+				return false;
+		} else {
+			
+			// The Element is not in root and List has elements.
+			
+			int count = 1;
+			Node<E> currentNode = root;
+			
+			// Look for the element or count should exhaust.
+			while (count != size && currentNode.getData() != data) {
+				currentNode = currentNode.getNext();
+				count++;
+			}
+			
+			// If the node is tail.
+			if (currentNode == tail) {
+				removeLast();
+				return true;
+			}
+
+			// If count is greater than size, element does not exist.
+			if (count > size) {
+				return false;
+			} else {
+				// Handle references.
+				currentNode.getNext().setPrev(currentNode.getPrev());
+				currentNode.getPrev().setNext(currentNode.getNext());
+				currentNode = null;
+
+				return true;
+			}
+		}
+	}
+
+	/**
+	 * Last Element of the LinkedList is removed.
+	 * 
+	 * @return
+	 */
+	public boolean removeLast() {
+
+		if (isLinkedListEmpty())
+			return false;
+		else if (size == 1) {
+			destroy();
+			size--;
+			return true;
+		} else {
+			size--;
+			Node<E> temp = tail.getPrev();
+			tail.setPrev(null);
+			tail = temp;
+			tail.setNext(null);
+
+			return true;
+		}
+	}
+
+	/**
+	 * Deletes all the references to the LinkedList, gc will clean in its next
+	 * cycle.
+	 * 
+	 * @return
+	 */
+	public boolean destroy() {
+
+		if (isLinkedListEmpty())
+			return false;
+		else {
+			size = 0;
+			root = null;
+			tail = null;
 			return true;
 		}
 	}
