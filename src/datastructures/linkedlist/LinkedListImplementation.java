@@ -14,15 +14,22 @@ public class LinkedListImplementation<E> {
 		linkedList.addAtEnd(7);
 		linkedList.addAtEnd(8);
 		linkedList.addAtEnd(8);
+		linkedList.addAtEnd(8);
 		linkedList.addAtEnd(9);
 		linkedList.addAtBegining(3);
 		linkedList.addAtPosition(10, 9);
+		linkedList.printListForward();
+		linkedList.removeAtPosition(9);
+		linkedList.printListForward();
+		linkedList.removeAtPosition(0);
+		linkedList.printListForward();
 		linkedList.printListForward();
 		linkedList.removeLast();
 		linkedList.printListForward();
 		linkedList.removeFirst();
 		linkedList.printListForward();
 		linkedList.removeFirstInstance(8);
+		linkedList.removeAllInstances(8);
 		
 		linkedList.printListForward();
 		linkedList.printListBackward();

@@ -215,6 +215,64 @@ public class LinkedList<E> {
 			}
 		}
 	}
+	
+	public boolean removeAllInstances (E data) {
+		
+		// If the list is empty.
+		if (isLinkedListEmpty()) return false;
+		else if (size == 1) {
+			destroy();
+			size--;
+			return true;
+		} else {
+			
+			Node<E> currentNode = root;
+			boolean flag = false;
+			while (currentNode != null) {
+				
+				Node<E> temp = currentNode;
+				if (currentNode.getData() == data) {
+					
+					if (currentNode == tail) {
+						removeLast();
+					} else {
+						currentNode.getNext().setPrev(currentNode.getPrev());
+						currentNode.getPrev().setNext(currentNode.getNext());
+						currentNode = null;
+					}
+					flag = true;
+				}
+				currentNode = temp.getNext();
+			}
+			return flag;
+		}
+	}
+	
+	/**
+	 * Remove Element a desired position.
+	 * @param position
+	 * @return
+	 */
+	public boolean removeAtPosition (int position) {
+		
+		if (isLinkedListEmpty()) return false;
+		else if (position > size || position < 1) return false;
+		else if (position == 1) removeFirst();
+		else if (position == size) removeLast();
+		else {
+			
+			int count = 0;
+			Node<E> currentNode = root;
+			
+			while (++count != position) currentNode = currentNode.getNext();
+			
+			currentNode.getNext().setPrev(currentNode.getPrev());
+			currentNode.getPrev().setNext(currentNode.getNext());
+			currentNode = null;
+			
+		}
+		return true;
+	}
 
 	/**
 	 * Last Element of the LinkedList is removed.
