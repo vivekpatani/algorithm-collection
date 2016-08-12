@@ -5,6 +5,8 @@ public class Node<E> {
 	private E data;
 	private Node<E> next;
 	private Node<E> prev;
+	private Node<E> down;
+	private Node<E> up;
 
 	/**
 	 * Node Constructor.
@@ -13,6 +15,8 @@ public class Node<E> {
 	public Node() {
 		next = null;
 		prev = null;
+		up = null;
+		down = null;
 	}
 
 	/**
@@ -24,14 +28,8 @@ public class Node<E> {
 		data = initialValue;
 		next = null;
 		prev = null;
-	}
-
-	/**
-	 * Returns Data for the corresponding Node.
-	 * @return
-	 */
-	public E getData() {
-		return data;
+		up = null;
+		down = null;
 	}
 
 	/**
@@ -78,5 +76,45 @@ public class Node<E> {
 	public boolean setPrev(Node<E> prev) {
 		this.prev = prev;
 		return true;
+	}
+	
+	/**
+	 * Returns The Child to current Node.
+	 * @return
+	 */
+	public Node<E> getDown() {
+		return down;
+	}
+
+	/**
+	 * Sets The Child to current Node.
+	 * @param down
+	 */
+	public void setDown(Node<E> down) {
+		this.down = down;
+	}
+
+	/**
+	 * Returns The Parent to current Node.
+	 * @return
+	 */
+	public Node<E> getUp() {
+		return up;
+	}
+
+	/**
+	 * Sets The Parent to current Node.
+	 * @param up
+	 */
+	public void setUp(Node<E> up) {
+		this.up = up;
+	}
+
+	/**
+	 * Returns Data for the corresponding Node.
+	 * @return
+	 */
+	public E getData() {
+		return data;
 	}
 }

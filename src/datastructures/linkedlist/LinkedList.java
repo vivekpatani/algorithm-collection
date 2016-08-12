@@ -216,6 +216,11 @@ public class LinkedList<E> {
 		}
 	}
 	
+	/**
+	 * Remove all instances of a desired data point.
+	 * @param data
+	 * @return
+	 */
 	public boolean removeAllInstances (E data) {
 		
 		// If the list is empty.
@@ -345,8 +350,8 @@ public class LinkedList<E> {
 		Node<E> currentNode = root;
 
 		System.out.println(ConstantsLinkedList.PRINT_FORWARD);
-		while (currentNode != tail.getNext()) {
-			System.out.print(currentNode.getData() + " ");
+		while (currentNode != null) {
+			System.out.print(currentNode.getData() + " -> ");
 			currentNode = currentNode.getNext();
 		}
 	}
@@ -360,7 +365,7 @@ public class LinkedList<E> {
 
 		System.out.println(ConstantsLinkedList.PRINT_BACKWARD);
 		while (currentNode != root.getPrev()) {
-			System.out.print(currentNode.getData() + " ");
+			System.out.print(currentNode.getData() + " <- ");
 			currentNode = currentNode.getPrev();
 		}
 	}
