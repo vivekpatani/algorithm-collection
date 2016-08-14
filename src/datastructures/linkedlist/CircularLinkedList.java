@@ -1,28 +1,28 @@
 package datastructures.linkedlist;
 
-import common.ConstantsCommon;
+import common.ConstantsCommon;;
 
-public class LinkedList<E> {
+public class CircularLinkedList<E> {
 
-	private int size = -1;
 	private Node<E> root;
 	private Node<E> tail;
+	private int size = -1;
 
 	/**
-	 * LinkedList Constructor.
+	 * Default Constructor.
 	 */
-	public LinkedList() {
+	public CircularLinkedList() {
 		root = new Node<E>();
 		size++;
 	}
 
 	/**
-	 * LinkedList Constructor with initial Value.
+	 * Default Overloaded Constructor with data.
 	 * 
-	 * @param firstMember
+	 * @param data
 	 */
-	public LinkedList(E firstMember) {
-		root = new Node<E>(firstMember);
+	public CircularLinkedList(E firstData) {
+		root = new Node<E>(firstData);
 		size = 1;
 	}
 
@@ -43,15 +43,15 @@ public class LinkedList<E> {
 		} else {
 
 			// The List is not empty, append element and mark it as tail.
-			Node<E> currentNode = root;
-			while (currentNode.getNext() != null)
-				currentNode = currentNode.getNext();
+			
 			Node<E> newNode = new Node<E>(data);
 
-			currentNode.setNext(newNode);
-			newNode.setPrev(currentNode);
+			tail.setNext(newNode);
+			newNode.setPrev(tail);
 
 			tail = newNode;
+			tail.setNext(root);
+			
 			size++;
 			return true;
 		}
@@ -131,6 +131,8 @@ public class LinkedList<E> {
 			newNode.setNext(root);
 			root.setPrev(newNode);
 			root = newNode;
+			tail.setNext(root);
+			root.setPrev(tail);
 			size++;
 			return true;
 		}
@@ -157,19 +159,23 @@ public class LinkedList<E> {
 			Node<E> temp = root.getNext();
 			root.setNext(null);
 			root = temp;
-			root.setPrev(null);
+			root.setPrev(tail);
+			tail.setNext(root);
 			size--;
+
 			return true;
 		}
 	}
 
 	/**
 	 * Remove the First Instance of the Element.
+	 * 
 	 * @param data
 	 * @return
 	 */
 	public boolean removeFirstInstance(E data) {
 
+		printListForward();
 		// If List is empty.
 		if (isLinkedListEmpty())
 			return false;
@@ -184,18 +190,18 @@ public class LinkedList<E> {
 				// The user entered an invalid element.
 				return false;
 		} else {
-			
+
 			// The Element is not in root and List has elements.
-			
+
 			int count = 1;
 			Node<E> currentNode = root;
-			
+
 			// Look for the element or count should exhaust.
 			while (count != size && currentNode.getData() != data) {
 				currentNode = currentNode.getNext();
 				count++;
 			}
-			
+
 			// If the node is tail.
 			if (currentNode == tail) {
 				removeLast();
@@ -211,72 +217,82 @@ public class LinkedList<E> {
 				currentNode.getPrev().setNext(currentNode.getNext());
 				currentNode = null;
 				size--;
+
 				return true;
 			}
 		}
 	}
-	
+
 	/**
 	 * Remove all instances of a desired data point.
+	 * 
 	 * @param data
 	 * @return
 	 */
-	public boolean removeAllInstances (E data) {
-		
+	public boolean removeAllInstances(E data) {
+
 		// If the list is empty.
-		if (isLinkedListEmpty()) return false;
+		if (isLinkedListEmpty())
+			return false;
 		else if (size == 1) {
 			destroy();
 			size--;
 			return true;
 		} else {
-			
+
 			Node<E> currentNode = root;
 			boolean flag = false;
-			while (currentNode != null) {
-				
+			do {
+
 				Node<E> temp = currentNode;
 				if (currentNode.getData() == data) {
-					
+
 					if (currentNode == tail) {
 						removeLast();
 					} else {
 						currentNode.getNext().setPrev(currentNode.getPrev());
 						currentNode.getPrev().setNext(currentNode.getNext());
 						currentNode = null;
+
 						size--;
 					}
 					flag = true;
 				}
 				currentNode = temp.getNext();
-			}
+			} while (currentNode != root);
 			return flag;
 		}
 	}
-	
+
 	/**
 	 * Remove Element a desired position.
+	 * 
 	 * @param position
 	 * @return
 	 */
-	public boolean removeAtPosition (int position) {
-		
-		if (isLinkedListEmpty()) return false;
-		else if (position > size || position < 1) return false;
-		else if (position == 1) removeFirst();
-		else if (position == size) removeLast();
+	public boolean removeAtPosition(int position) {
+
+		if (isLinkedListEmpty())
+			return false;
+		else if (position > size || position < 1)
+			return false;
+		else if (position == 1)
+			removeFirst();
+		else if (position == size)
+			removeLast();
 		else {
-			
+
 			int count = 0;
 			Node<E> currentNode = root;
-			
-			while (++count != position) currentNode = currentNode.getNext();
-			
+
+			while (++count != position)
+				currentNode = currentNode.getNext();
+
 			currentNode.getNext().setPrev(currentNode.getPrev());
 			currentNode.getPrev().setNext(currentNode.getNext());
 			currentNode = null;
 			size--;
-			
+
 		}
 		return true;
 	}
@@ -299,7 +315,8 @@ public class LinkedList<E> {
 			Node<E> temp = tail.getPrev();
 			tail.setPrev(null);
 			tail = temp;
-			tail.setNext(null);
+			root.setPrev(tail);
+			tail.setNext(root);
 
 			return true;
 		}
@@ -349,14 +366,21 @@ public class LinkedList<E> {
 	 */
 	public void printListForward() {
 
-		Node<E> currentNode = root;
+		if (isLinkedListEmpty())
+			System.out.println("Issue Bruh!");
+		else if (size == 1)
+			System.out.println(ConstantsLinkedList.PRINT_FORWARD + "\n" + root.getData() + " Size: " + getSize());
+		else {
 
-		System.out.println(ConstantsLinkedList.PRINT_FORWARD);
-		while (currentNode != null) {
-			System.out.print(currentNode.getData() + " -> ");
-			currentNode = currentNode.getNext();
+			Node<E> currentNode = root;
+
+			System.out.println(ConstantsLinkedList.PRINT_FORWARD);
+			do {
+				System.out.print(currentNode.getData() + " -> ");
+				currentNode = currentNode.getNext();
+			} while (currentNode != root);
+			System.out.println("Size: " + getSize());
 		}
-		System.out.println("Size: "+ getSize());
 	}
 
 	/**
@@ -364,13 +388,18 @@ public class LinkedList<E> {
 	 */
 	public void printListBackward() {
 
-		Node<E> currentNode = tail;
+		if (isLinkedListEmpty()) {
+		} else if (size == 1)
+			System.out.println(ConstantsLinkedList.PRINT_BACKWARD + "\n" + root.getData() + " Size: " + getSize());
+		else {
+			Node<E> currentNode = tail;
 
-		System.out.println(ConstantsLinkedList.PRINT_BACKWARD);
-		while (currentNode != root.getPrev()) {
-			System.out.print(currentNode.getData() + " <- ");
-			currentNode = currentNode.getPrev();
+			System.out.println(ConstantsLinkedList.PRINT_BACKWARD);
+			do {
+				System.out.print(currentNode.getData() + " <- ");
+				currentNode = currentNode.getPrev();
+			} while (currentNode != root);
+			System.out.println("Size: " + getSize());
 		}
-		System.out.println("Size: "+ getSize());
 	}
 }
