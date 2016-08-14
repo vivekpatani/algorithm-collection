@@ -10,7 +10,6 @@
 		* Circular LinkedList (C)
 		* Multilayer LinkedList (M)
 	* Functions:
-		```java
 		* addAtEnd(data) - S,D,C
 		* addAtPosition - S,D,C
 		* addAtBegining - S,D,C
@@ -20,4 +19,3 @@
 		* removeAtPosition(int position) - S,D,C
 		* removeLast() - S,D,C
 		* destroy() - S,D,C
-		```
