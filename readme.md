@@ -1,9 +1,9 @@
 [![Build Status](https://semaphoreci.com/api/v1/vivekpatani/algorithm-collection/branches/master/badge.svg)](https://semaphoreci.com/vivekpatani/algorithm-collection)
 
-=Algorithm \& Data Structures Collection in Java
+#Algorithm \& Data Structures Collection in Java
 
-==List of Contents
-=== Linked List - A generic Linked List with various functionalities
+##List of Contents
+* Linked List - A generic Linked List with various functionalities
 	* Types:
 		* Singly LinkedList (S)
 		* Doubly LinkedList (D)
