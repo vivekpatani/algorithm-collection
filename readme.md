@@ -19,3 +19,13 @@
 		* removeAtPosition(int position) - S,D,C
 		* removeLast() - S,D,C
 		* destroy() - S,D,C
+
+* Queue - A generic Queue with various functionalities
+	* Types:
+		* Simple Queue (S)
+		* Circular Queue (C)
+		* Priority Queue (P)
+		* Dequeue - Double Ended Queue (D)
+	*Functionalities:
+		* enqueue (data) - S,C,P,D
+		* pop - S,C,P,D

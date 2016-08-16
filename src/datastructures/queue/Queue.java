@@ -1,5 +1,7 @@
 package datastructures.queue;
 
+import common.ConstantsCommon;
+
 public class Queue<E> {
 
 	private Node<E> front;
@@ -53,13 +55,15 @@ public class Queue<E> {
 
 	/**
 	 * Returns the element at the front of the Queue and remove it.
+	 * 
 	 * @return
 	 */
 	public E pop() {
 
-		if (isQueueEmpty())
-			return null;
-		else {
+		if (isQueueEmpty()) {
+			System.out.println(ConstantsCommon.ERROR);
+			throw new java.util.NoSuchElementException();
+		} else {
 
 			E value = front.getData();
 			if (size == 1) {
@@ -72,14 +76,16 @@ public class Queue<E> {
 			return value;
 		}
 	}
-	
+
 	/**
 	 * Returns the element at the front of the element and retains it.
+	 * 
 	 * @return
 	 */
 	public E peek() {
-		
-		if (isQueueEmpty()) return null;
+
+		if (isQueueEmpty())
+			return null;
 		else {
 			return front.getData();
 		}
@@ -87,6 +93,7 @@ public class Queue<E> {
 
 	/**
 	 * Destroy the Queue.
+	 * 
 	 * @return
 	 */
 	public boolean destroy() {
@@ -94,8 +101,10 @@ public class Queue<E> {
 		if (front == null) {
 			return false;
 		} else {
+			System.out.println("Destruction");
 			front = null;
 			rear = null;
+			size--;
 			return true;
 		}
 	}
@@ -107,10 +116,18 @@ public class Queue<E> {
 	 */
 	public boolean isQueueEmpty() {
 
-		if (size < 1)
+		if (getSize() < 1)
 			return true;
 		else
 			return false;
 	}
 
+	/**
+	 * Returns the size of the Current Queue.
+	 * 
+	 * @return
+	 */
+	public int getSize() {
+		return size;
+	}
 }
