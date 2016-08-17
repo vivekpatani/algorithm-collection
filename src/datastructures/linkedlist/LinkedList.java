@@ -69,7 +69,7 @@ public class LinkedList<E> {
 		// If Position is out of bounds, return error. +1 is because user can
 		// give position as last.
 		if (position > size + 1 || position < 0) {
-			System.out.println(ConstantsCommon.ERROR);
+			System.out.println(ConstantsCommon.LINKEDLIST_OUT_OF_RANGE);
 			return false;
 		}
 
@@ -144,8 +144,10 @@ public class LinkedList<E> {
 	public boolean removeFirst() {
 
 		// If the List is Empty.
-		if (isLinkedListEmpty())
+		if (isLinkedListEmpty()) {
+			System.out.println(ConstantsCommon.LINKEDLIST_EMPTY);
 			return false;
+		}
 		else if (size == 1) {
 			// If List contains only one element, destroy the LinkedList.
 			destroy();
@@ -171,8 +173,10 @@ public class LinkedList<E> {
 	public boolean removeFirstInstance(E data) {
 
 		// If List is empty.
-		if (isLinkedListEmpty())
+		if (isLinkedListEmpty()){
+			System.out.println(ConstantsCommon.LINKEDLIST_EMPTY);
 			return false;
+		}
 
 		else if (size == 1) {
 			// If List contains only one element, check if it is the same
@@ -182,6 +186,7 @@ public class LinkedList<E> {
 				return true;
 			} else
 				// The user entered an invalid element.
+				System.out.println(ConstantsCommon.LINKEDLIST_NO_SUCH_ELEMENT + data);
 				return false;
 		} else {
 			
@@ -204,6 +209,7 @@ public class LinkedList<E> {
 
 			// If count is greater than size, element does not exist.
 			if (count > size) {
+				System.out.println(ConstantsCommon.LINKEDLIST_NO_SUCH_ELEMENT + data);
 				return false;
 			} else {
 				// Handle references.
@@ -224,7 +230,10 @@ public class LinkedList<E> {
 	public boolean removeAllInstances (E data) {
 		
 		// If the list is empty.
-		if (isLinkedListEmpty()) return false;
+		if (isLinkedListEmpty()) {
+			System.out.println(ConstantsCommon.LINKEDLIST_EMPTY);
+			return false;
+			}
 		else if (size == 1) {
 			destroy();
 			size--;
@@ -261,8 +270,10 @@ public class LinkedList<E> {
 	 */
 	public boolean removeAtPosition (int position) {
 		
-		if (isLinkedListEmpty()) return false;
-		else if (position > size || position < 1) return false;
+		if (isLinkedListEmpty()) {
+			System.out.println(ConstantsCommon.LINKEDLIST_EMPTY);
+			return false;
+		} else if (position > size || position < 1) return false;
 		else if (position == 1) removeFirst();
 		else if (position == size) removeLast();
 		else {
@@ -288,9 +299,10 @@ public class LinkedList<E> {
 	 */
 	public boolean removeLast() {
 
-		if (isLinkedListEmpty())
+		if (isLinkedListEmpty()) {
+			System.out.println(ConstantsCommon.LINKEDLIST_EMPTY);
 			return false;
-		else if (size == 1) {
+		} else if (size == 1) {
 			destroy();
 			size--;
 			return true;
@@ -313,8 +325,10 @@ public class LinkedList<E> {
 	 */
 	public boolean destroy() {
 
-		if (isLinkedListEmpty())
+		if (isLinkedListEmpty()){
+			System.out.println(ConstantsCommon.DESTROY);
 			return false;
+		}
 		else {
 			size = 0;
 			root = null;

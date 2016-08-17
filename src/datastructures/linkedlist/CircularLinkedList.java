@@ -43,7 +43,7 @@ public class CircularLinkedList<E> {
 		} else {
 
 			// The List is not empty, append element and mark it as tail.
-			
+
 			Node<E> newNode = new Node<E>(data);
 
 			tail.setNext(newNode);
@@ -51,7 +51,7 @@ public class CircularLinkedList<E> {
 
 			tail = newNode;
 			tail.setNext(root);
-			
+
 			size++;
 			return true;
 		}
@@ -69,7 +69,7 @@ public class CircularLinkedList<E> {
 		// If Position is out of bounds, return error. +1 is because user can
 		// give position as last.
 		if (position > size + 1 || position < 0) {
-			System.out.println(ConstantsCommon.ERROR);
+			System.out.println(ConstantsCommon.GENERIC_ERROR);
 			return false;
 		}
 
@@ -146,9 +146,10 @@ public class CircularLinkedList<E> {
 	public boolean removeFirst() {
 
 		// If the List is Empty.
-		if (isLinkedListEmpty())
+		if (isLinkedListEmpty()) {
+			System.out.println(ConstantsCommon.LINKEDLIST_EMPTY);
 			return false;
-		else if (size == 1) {
+		} else if (size == 1) {
 			// If List contains only one element, destroy the LinkedList.
 			destroy();
 			size--;
@@ -175,10 +176,11 @@ public class CircularLinkedList<E> {
 	 */
 	public boolean removeFirstInstance(E data) {
 
-		printListForward();
 		// If List is empty.
-		if (isLinkedListEmpty())
+		if (isLinkedListEmpty()) {
+			System.out.println(ConstantsCommon.LINKEDLIST_EMPTY);
 			return false;
+		}
 
 		else if (size == 1) {
 			// If List contains only one element, check if it is the same
@@ -186,9 +188,11 @@ public class CircularLinkedList<E> {
 			if (root.getData() == data) {
 				destroy();
 				return true;
-			} else
+			} else {
 				// The user entered an invalid element.
+				System.out.println(ConstantsCommon.LINKEDLIST_NO_SUCH_ELEMENT + data);
 				return false;
+			}
 		} else {
 
 			// The Element is not in root and List has elements.
@@ -210,6 +214,7 @@ public class CircularLinkedList<E> {
 
 			// If count is greater than size, element does not exist.
 			if (count > size) {
+				System.out.println(ConstantsCommon.LINKEDLIST_NO_SUCH_ELEMENT + data);
 				return false;
 			} else {
 				// Handle references.
@@ -232,9 +237,10 @@ public class CircularLinkedList<E> {
 	public boolean removeAllInstances(E data) {
 
 		// If the list is empty.
-		if (isLinkedListEmpty())
+		if (isLinkedListEmpty()) {
+			System.out.println(ConstantsCommon.LINKEDLIST_EMPTY);
 			return false;
-		else if (size == 1) {
+		} else if (size == 1) {
 			destroy();
 			size--;
 			return true;
@@ -272,9 +278,10 @@ public class CircularLinkedList<E> {
 	 */
 	public boolean removeAtPosition(int position) {
 
-		if (isLinkedListEmpty())
+		if (isLinkedListEmpty()) {
+			System.out.println(ConstantsCommon.LINKEDLIST_EMPTY);
 			return false;
-		else if (position > size || position < 1)
+		} else if (position > size || position < 1)
 			return false;
 		else if (position == 1)
 			removeFirst();
@@ -304,8 +311,10 @@ public class CircularLinkedList<E> {
 	 */
 	public boolean removeLast() {
 
-		if (isLinkedListEmpty())
+		if (isLinkedListEmpty()) {
+			System.out.println(ConstantsCommon.LINKEDLIST_EMPTY);
 			return false;
+		}
 		else if (size == 1) {
 			destroy();
 			size--;
@@ -330,12 +339,15 @@ public class CircularLinkedList<E> {
 	 */
 	public boolean destroy() {
 
-		if (isLinkedListEmpty())
+		if (isLinkedListEmpty()) {
+			System.out.println(ConstantsCommon.LINKEDLIST_EMPTY);
 			return false;
+		}
 		else {
 			size = 0;
 			root = null;
 			tail = null;
+			System.out.println(ConstantsCommon.DESTROY);
 			return true;
 		}
 	}
@@ -367,14 +379,14 @@ public class CircularLinkedList<E> {
 	public void printListForward() {
 
 		if (isLinkedListEmpty())
-			System.out.println("Issue Bruh!");
+			System.out.println(ConstantsCommon.LINKEDLIST_EMPTY);
 		else if (size == 1)
-			System.out.println(ConstantsLinkedList.PRINT_FORWARD + "\n" + root.getData() + " Size: " + getSize());
+			System.out.println(ConstantsCommon.LINKEDLIST_FORWARD_PRINT + "\n" + root.getData() + " Size: " + getSize());
 		else {
 
 			Node<E> currentNode = root;
 
-			System.out.println(ConstantsLinkedList.PRINT_FORWARD);
+			System.out.println(ConstantsCommon.LINKEDLIST_FORWARD_PRINT);
 			do {
 				System.out.print(currentNode.getData() + " -> ");
 				currentNode = currentNode.getNext();
@@ -389,12 +401,13 @@ public class CircularLinkedList<E> {
 	public void printListBackward() {
 
 		if (isLinkedListEmpty()) {
+			System.out.println(ConstantsCommon.LINKEDLIST_EMPTY);
 		} else if (size == 1)
-			System.out.println(ConstantsLinkedList.PRINT_BACKWARD + "\n" + root.getData() + " Size: " + getSize());
+			System.out.println(ConstantsCommon.LINKEDLIST_BACKWARD_PRINT + "\n" + root.getData() + " Size: " + getSize());
 		else {
 			Node<E> currentNode = tail;
 
-			System.out.println(ConstantsLinkedList.PRINT_BACKWARD);
+			System.out.println(ConstantsCommon.LINKEDLIST_BACKWARD_PRINT);
 			do {
 				System.out.print(currentNode.getData() + " <- ");
 				currentNode = currentNode.getPrev();

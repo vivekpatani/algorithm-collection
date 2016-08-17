@@ -13,10 +13,11 @@ public class QueueImplementation {
 		System.out.println(queue.getSize());
 		queue.pop();
 		System.out.println(queue.getSize());
-		queue.pop();
+		queue.destroy();
 		System.out.println(queue.getSize());
 		queue.pop();
 		System.out.println(queue.getSize());
+		
 
 	}
 

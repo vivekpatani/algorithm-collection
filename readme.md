@@ -28,4 +28,4 @@
 		* Dequeue - Double Ended Queue (D)
 	*Functionalities:
 		* enqueue (data) - S,C,P,D
-		* pop - S,C,P,D
+		* pop() - S,C,P,D

@@ -2,59 +2,59 @@ package datastructures.queue;
 
 import common.ConstantsCommon;
 
-public class Queue<E> {
+public class CircularQueue<E> {
 
 	private Node<E> front;
 	private Node<E> rear;
 	private int size = -1;
 
 	/**
-	 * Default Constructor
+	 * Default Constructor to initialise a Queue.
 	 */
-	public Queue() {
+	public CircularQueue() {
 		front = new Node<E>();
 		rear = front;
 		size = 0;
 	}
 
 	/**
-	 * Default Constructor with default value;
+	 * Default Constructor to initialise a Queue with first Element.
 	 * 
-	 * @param data
+	 * @param firstData
 	 */
-	public Queue(E data) {
-		front = new Node<E>(data);
+	public CircularQueue(E firstData) {
+
+		front = new Node<E>();
+		front.setData(firstData);
 		rear = front;
 		size = 1;
 	}
 
 	/**
-	 * Enqueue new data elements at the end of the Queue.
+	 * Appends an element to the the end of the Queue.
 	 * 
 	 * @param data
 	 * @return
 	 */
 	public boolean enQueue(E data) {
 
-		// If the Queue is empty, initialise it.
 		if (isQueueEmpty()) {
 			front.setData(data);
-			rear.setData(data);
+			rear = front;
 			size++;
 		} else {
-			// Else, add queue element at end.
 
 			Node<E> newNode = new Node<E>(data);
 			rear.setNext(newNode);
 			rear = newNode;
+			rear.setNext(front);
 			size++;
 		}
-
 		return true;
 	}
 
 	/**
-	 * Returns the element at the front of the Queue and remove it.
+	 * Returns and Removes the element at the front of Queue.
 	 * 
 	 * @return
 	 */
@@ -64,33 +64,29 @@ public class Queue<E> {
 			System.out.println(ConstantsCommon.QUEUE_EMPTY);
 			return null;
 		} else {
+			E data = front.getData();
 
-			E value = front.getData();
 			if (size == 1) {
 				destroy();
 			} else {
-
 				front = front.getNext();
 				size--;
 			}
-			return value;
+			return data;
 		}
 	}
 
 	/**
-	 * Returns the element at the front of the element and retains it.
+	 * Returns the front of the Queue.
 	 * 
 	 * @return
 	 */
 	public E peek() {
 
-		if (isQueueEmpty()) {
-			System.out.println(ConstantsCommon.QUEUE_EMPTY);
+		if (isQueueEmpty())
 			return null;
-		}
-		else {
+		else
 			return front.getData();
-		}
 	}
 
 	/**
@@ -100,40 +96,30 @@ public class Queue<E> {
 	 */
 	public boolean destroy() {
 
-		if (front == null) {
+		if (isQueueEmpty()) {
 			System.out.println(ConstantsCommon.QUEUE_EMPTY);
 			return false;
 		} else {
 			System.out.println(ConstantsCommon.DESTROY);
-			front = null;
-			rear = null;
-			size=0;
+			front = rear = null;
+			size = 0;
 			return true;
 		}
 	}
 
 	/**
-	 * Returns whether if the Queue is Empty or not.
+	 * Returns whether if the Queue is empty or not.
 	 * 
 	 * @return
 	 */
 	public boolean isQueueEmpty() {
 
-		if (getSize() < 1)
+		if (size < 1)
 			return true;
 		else
 			return false;
 	}
 
-	/**
-	 * Returns the size of the Current Queue.
-	 * 
-	 * @return
-	 */
-	public int getSize() {
-		return size;
-	}
-	
 	/**
 	 * Print the Queue in a forward fashion.
 	 */
