@@ -26,6 +26,6 @@
 		* Circular Queue (C)
 		* Priority Queue (P)
 		* Dequeue - Double Ended Queue (D)
-	*Functionalities:
+	* Functionalities:
 		* enqueue (data) - S,C,P,D
 		* pop() - S,C,P,D
