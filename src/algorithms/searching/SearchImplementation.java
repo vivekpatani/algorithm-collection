@@ -15,6 +15,7 @@ public class SearchImplementation {
 		list.add("Are");
 		list.add("You");
 		System.out.println("Position: " + search.linearSearch("Hi", list));
+		search.binarySearch("Hi", list);
 	}
 
 }
