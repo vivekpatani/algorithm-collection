@@ -387,4 +387,22 @@ public class LinkedList<E> {
 		}
 		System.out.println("Size: "+ getSize());
 	}
+	
+
+	/**
+	 * Returns the root of the list.
+	 * @return
+	 */
+	public Node<E> getRoot() {
+		return root;
+	}
+
+	/**
+	 * Returns the tail of the list.
+	 * @return
+	 */
+	public Node<E> getTail() {
+		return tail;
+	}
+
 }
