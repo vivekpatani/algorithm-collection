@@ -50,7 +50,7 @@ public class Solution7 {
 		
 		if (length%2 != 0) stack.push(list.get(length/2));
 		
-		System.out.println(list + " " + stack);
+		//System.out.println(list + " " + stack);
 		
 		for (int i = length/2; i < length; i++) {
 			
