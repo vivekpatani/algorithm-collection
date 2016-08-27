@@ -4,10 +4,15 @@ public class SearchImplementation<E> {
 
 	public static void main(String[] args) {
 		
+		
 		int[] a = new int [] {16,4,10,14,7,9,3,2,8,1};//{ 1, 2, 3, 4, 7, 8, 9, 10, 14, 16 };
+		int[] b = new int [] {16,4,10,14,7,9,3,2,8,1};//{ 1, 2, 3, 4, 7, 8, 9, 10, 14, 16 };
 		
 		HeapSort.sort(a);
 		displayList(a);
+		
+		MergeSort.mergeSort(b, 0, b.length-1);
+		displayList(b);
 	}
 	
 	public static void displayList (int[] a) {

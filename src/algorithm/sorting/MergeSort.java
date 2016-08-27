@@ -1,56 +1,50 @@
 package algorithm.sorting;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class MergeSort<E> {
 
-	public void mergeSort(List<E> list, int startIndex, int endIndex) {
+	public static void mergeSort(int[] list, int startIndex, int endIndex) {
 
 		if (startIndex < endIndex) {
 
-			int midIndex = ((startIndex) + (endIndex - startIndex)) / 2;
-			System.out.println(midIndex);
+			int midIndex = (endIndex + startIndex) / 2;
+				
 			mergeSort(list, startIndex, midIndex);
 			mergeSort(list, midIndex + 1, endIndex);
-			System.out.println(midIndex + " " + list);
 			merge(list, startIndex, midIndex, endIndex);
 		}
 	}
 
-	public void merge(List<E> list, int startIndex, int midIndex, int endIndex) {
+	public static void merge(int[] list, int startIndex, int midIndex, int endIndex) {
 
-		List<E> sorted = new ArrayList<>();
-		NaturalOrder<E> comparator = new NaturalOrder<E>();
-		List<E> left = new ArrayList<E>();
-		List<E> right = new ArrayList<E>();
-
-		for (int i = startIndex; i <= midIndex; i++) {
-			left.add(list.get(i));
+		int n1 = midIndex - startIndex + 1;
+		int n2 = endIndex - midIndex;
+		
+		int[] left = new int[n1 + 1];
+		int[] right = new int[n2 + 1];
+		
+		
+		for (int i = 0; i < n1; i++) {
+			left[i] = list[startIndex+i];
+		}
+		
+		for (int i = 0; i < n2; i++) {
+			right[i] = list[midIndex+1+i];
 		}
 
-		for (int i = midIndex + 1; i <= endIndex; i++) {
-			right.add(list.get(i));
-		}
-
-		int i = 0, j = 0;
-
-		System.out.println(left);
-		System.out.println(right);
-		for (int k = startIndex; k <= endIndex; k++) {
-
-			if (comparator.compare(left.get(i), right.get(j)) < 0) {
-				sorted.add(left.get(k));
+		left[n1] = Integer.MAX_VALUE;
+		right[n2] = Integer.MAX_VALUE;
+		
+		int i=0, j=0;
+		for (int k = startIndex; k <=endIndex; k++) {
+			
+			if (left[i] <= right[j]) {
+				list[k] = left[i];
 				i++;
 			} else {
-				sorted.add(right.get(k));
+				list[k] = right[j];
 				j++;
 			}
 		}
 	}
 
-	public void printList(List<E> list) {
-
-		System.out.println(list);
-	}
 }
