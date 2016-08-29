@@ -5,6 +5,8 @@ public class Node<E>{
 	private int data;
 	private Node<E> leftChild;
 	private Node<E> rightChild;
+	
+	private int visited = 0;
 
 	/**
 	 * Default Constructor
@@ -78,6 +80,26 @@ public class Node<E>{
 	public void setRightChild(Node<E> rightChild) {
 		this.rightChild = rightChild;
 	}
+
+	/**
+	 * Returns whether if the node is visited or not.
+	 * @return
+	 */
+	public int getVisited() {
+		return visited;
+	}
+
+	/**
+	 * Sets the status of the node, whether if visited or not.
+	 * @param visited
+	 */
+	public void setVisited(int visited) {
+		if (visited!=0 || visited!=1) {
+		}
+		else this.visited = visited;
+	}
+	
+	
 
 //	/**
 //	 * Compares two Elements and returns integer.

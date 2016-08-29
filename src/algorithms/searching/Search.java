@@ -1,25 +1,12 @@
 package algorithms.searching;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 
-import common.ConstantsCommon;
+public class Search {
 
-public class Search<E> {
+	public static int linearSearch(int key, ArrayList<Integer> list) {
 
-	private ArrayList<E> list;
-	private int position = -1;;
-	private E key;
-
-	Search() {
-		this.list = new ArrayList<E>();
-		position = -1;
-	}
-
-	public int linearSearch(E key, ArrayList<E> list) {
-
-		this.list = list;
-		this.key = key;
+		int position = -1;
 
 		if (list.size() < 1) {
 			System.out.println("No Element Present");
@@ -41,37 +28,40 @@ public class Search<E> {
 		return position;
 	}
 
-	public int binarySearch(E key, ArrayList<E> list) {
+	public static int binarySearch(int key, ArrayList<Integer> list) {
 
-		// this.list = list;
-		// this.key = key;
-		//
-		// for (int i=0; i<list.size() - 1; i++) {
-		//
-		// if (list.get(i).toString() > list.get(i+1).toString()) {
-		//
-		// System.out.println(ConstantsCommon.GENERIC_ERROR);
-		// return -1;
-		// }
-		// }
+		int startIndex = 0;
+		int endIndex = list.size();
 
-		list.sort(new ListComparator());
+		while (startIndex < endIndex) {
 
-		//while (true) {
-			// BinSearch Logic
-		//}
-
-		System.out.println(list);
-		
-		return position;
+			// https://research.googleblog.com/2006/06/extra-extra-read-all-about-it-nearly.html
+			// Why mid = s + (e-s)/2 and not mid = (e+s)/2
+			int mid = startIndex + (endIndex - startIndex) / 2;
+			if (key == list.get(mid)) {
+				return mid + 1;
+			} else if (key < list.get(mid)) {
+				endIndex = mid - 1;
+			} else {
+				startIndex = mid + 1;
+			}
+		}
+		return -1;
 	}
 
-	private class ListComparator implements Comparator<E> {
+	public static int binarySearchRec(int key, ArrayList<Integer> list, int startIndex, int endIndex) {
 
-		@Override
-		public int compare(E o1, E o2) {
-			return o1.toString().compareTo(o2.toString());
+		if (startIndex < endIndex) {
+			int mid = startIndex + (endIndex - startIndex) / 2;
+
+			if (key == list.get(mid))
+				return mid;
+			else if (key < list.get(mid))
+				binarySearchRec(key, list, startIndex, mid - 1);
+			else
+				binarySearchRec(key, list, mid + 1, endIndex);
 		}
 
+		return -1;
 	}
 }

@@ -34,6 +34,10 @@ public class Dump {
 		System.out.println(list.removeAll(remove));
 		System.out.println(list);
 
+		for (int i = 0; ; i++) {
+			System.out.println(i);
+			
+		}
 	}
 
 }

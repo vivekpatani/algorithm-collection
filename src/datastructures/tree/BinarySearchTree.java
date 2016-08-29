@@ -4,7 +4,6 @@ import java.util.NoSuchElementException;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-
 public class BinarySearchTree<E> {
 
 	private Node<E> root;
@@ -68,6 +67,7 @@ public class BinarySearchTree<E> {
 
 	/**
 	 * Deletes the node given by user.
+	 * 
 	 * @param data
 	 * @return
 	 */
@@ -148,6 +148,7 @@ public class BinarySearchTree<E> {
 
 	/**
 	 * Finds an eligible node to replace while deletion.
+	 * 
 	 * @param deleteNode
 	 * @return
 	 */
@@ -181,6 +182,7 @@ public class BinarySearchTree<E> {
 
 	/**
 	 * In Order Traversal of the tree.
+	 * 
 	 * @param root
 	 */
 	public void inOrderTraversal(Node<E> root) {
@@ -193,9 +195,9 @@ public class BinarySearchTree<E> {
 			inOrderTraversal(root.getRightChild());
 		}
 	}
-	
+
 	public void postOrderTraversal(Node<E> root) {
-		
+
 		if (isEmpty())
 			System.out.println("What's wrong with you?");
 		else if (root != null) {
@@ -230,12 +232,13 @@ public class BinarySearchTree<E> {
 		}
 		return false;
 	}
-	
-	public void levelOrderTraversal () {
-		
-		if (isEmpty()) System.out.println("Excuse me?!");
+
+	public void levelOrderTraversal() {
+
+		if (isEmpty())
+			System.out.println("Excuse me?!");
 		else {
-			
+
 			System.out.println("\nLevel Order Traversal:");
 			Queue<Node<E>> queue = new ConcurrentLinkedQueue<Node<E>>();
 			queue.add(root);
@@ -243,13 +246,10 @@ public class BinarySearchTree<E> {
 			while (queue.size() > 0) {
 				currentNode = queue.remove();
 				System.out.print(currentNode.getData() + " ");
-				if (currentNode.getLeftChild() != null) {
+				if (currentNode.getLeftChild() != null)
 					queue.add(currentNode.getLeftChild());
-				}
-				
-				if (currentNode.getRightChild() != null) {
+				if (currentNode.getRightChild() != null)
 					queue.add(currentNode.getRightChild());
-				}
 			}
 		}
 	}
@@ -266,9 +266,10 @@ public class BinarySearchTree<E> {
 		else
 			return false;
 	}
-	
+
 	/**
 	 * Returns Root for the Tree.
+	 * 
 	 * @return
 	 */
 	public Node<E> getRoot() {
@@ -277,6 +278,7 @@ public class BinarySearchTree<E> {
 
 	/**
 	 * Returns the size of tree.
+	 * 
 	 * @return
 	 */
 	public int getSize() {
