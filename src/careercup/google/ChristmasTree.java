@@ -1,88 +1,86 @@
 package careercup.google;
 
 public class ChristmasTree {
-	
-	public static void main(String [] args) {
 
-        printTree(4);
+	public static void main(String[] args) {
 
-        System.out.println();
-        System.out.println();
-        System.out.println();
+		printTree(4);
 
-        printTree(10);
+		System.out.println();
+		System.out.println();
+		System.out.println();
 
-        System.out.println();
-        System.out.println();
-        System.out.println();
+		printTree(10);
 
-        printTree(20);
+		System.out.println();
+		System.out.println();
+		System.out.println();
 
-        System.out.println();
-        System.out.println();
-        System.out.println();
+		printTree(20);
 
-        printTree(25);
-        printTree(1);
+		System.out.println();
+		System.out.println();
+		System.out.println();
 
-    }
+		printTree(25);
+		printTree(1);
 
-    public static void printTree(int day) {
-        if (day  < 2) {
-            System.out.println("You cannot generate christmas tree");
-            return;
-        }
+	}
 
-        if (day > 20) {
-            System.out.println("Tree is no more");
-            return;
-        }
+	public static void printTree(int day) {
+		if (day < 2) {
+			System.out.println("You cannot generate christmas tree");
+			return;
+		}
 
-        StringBuilder buf = new StringBuilder();
+		if (day > 20) {
+			System.out.println("Tree is no more");
+			return;
+		}
 
-        // first level
-        for (int i = 1, j = day; i <= day*2 + 1; i = i+2, j-- ) {
-            // space
-            for (int a = 0; a <= j; a++) {
-                buf.append(' ');
-            }
+		StringBuilder buf = new StringBuilder();
 
-            // star
-            for (int a = 0; a < i; a++) {
-                buf.append('*');
-            }
+		// first level
+		for (int i = 1, j = day; i <= day * 2 + 1; i = i + 2, j--) {
+			// space
+			for (int a = 0; a <= j; a++) {
+				buf.append(' ');
+			}
 
-            buf.append('\n');
-        }
+			// star
+			for (int a = 0; a < i; a++) {
+				buf.append('*');
+			}
 
-        for (int b = 1; b < day-1; b++) {
+			buf.append('\n');
+		}
 
-            for (int i = 3, j = day-1; i <= day*2 + 1 - b*2; i = i+2, j-- ) {
-                // space
-                for (int a = 0; a <= j; a++) {
-                    buf.append(' ');
-                }
+		for (int b = 1; b < day - 1; b++) {
 
-                // star
-                for (int a = 0; a < i; a++) {
-                    buf.append('*');
-                }
+			for (int i = 3, j = day - 1; i <= day * 2 + 1 - b * 2; i = i + 2, j--) {
+				// space
+				for (int a = 0; a <= j; a++) {
+					buf.append(' ');
+				}
 
-                buf.append('\n');
-            }
+				// star
+				for (int a = 0; a < i; a++) {
+					buf.append('*');
+				}
 
-        }
+				buf.append('\n');
+			}
 
-        for (int j = 0; j < 2; j++) {
-            for (int i = 0; i <= day; i++) {
-                buf.append(' ');
-            }
-            buf.append('*').append('\n');
-        }
+		}
 
+		for (int j = 0; j < 2; j++) {
+			for (int i = 0; i <= day; i++) {
+				buf.append(' ');
+			}
+			buf.append('*').append('\n');
+		}
 
-        System.out.println(buf.toString());
-    }
-
+		System.out.println(buf.toString());
+	}
 
 }
