@@ -3,11 +3,16 @@ package leetcode.solutions;
 /**
  * https://leetcode.com/problems/divide-two-integers/
  * @author flipswitch
+<<<<<<< Updated upstream
  * Solution: https://www.careercup.com/question?id=2772
+=======
+ *
+>>>>>>> Stashed changes
  */
 public class DivideTwoInteger {
 
 	public static void main(String[] args) {
+<<<<<<< Updated upstream
 		System.out.println(divide(-2147483648,1) + " " + (-2147483648/1) + " Ok");
 		//System.out.println(divide(15,3) + " " + (15/3) + " Ok");
 	}
@@ -62,3 +67,19 @@ public class DivideTwoInteger {
 	}
 
 }
+=======
+		System.out.println(divide(16,4));
+	}
+	
+	public static int divide(int dividend, int divisor) {
+		
+		int temp = 16;
+		temp = temp << 1;
+		
+		System.out.println(15&1);
+		
+		return temp;
+	}
+
+}
+>>>>>>> Stashed changes
