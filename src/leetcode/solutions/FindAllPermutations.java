@@ -44,6 +44,8 @@ public class FindAllPermutations {
 		// We have generated numbers for all possible combinations for this 
 		// current number.
 		if (temp.size() == nums.length) {
+			// Each time store solution in a new list, because the current
+			// temp may be mutated further.
 			output.add(new ArrayList<>(temp));
 			
 		} else {
@@ -52,7 +54,11 @@ public class FindAllPermutations {
 				// Else add the missing number
 				temp.add(nums[i]);
 				backtrack(output, temp, nums);
+				System.out.print(temp);
 				temp.remove(temp.remove(temp.size() - 1));
+				System.out.print(" -> " + temp);
+				System.out.print(" ==== " + output);
+				System.out.println();
 				
 			}
 		}
