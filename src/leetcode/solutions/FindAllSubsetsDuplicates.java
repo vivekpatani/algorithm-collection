@@ -17,7 +17,7 @@ public class FindAllSubsetsDuplicates {
 	 */
 	public static void main(String[] args) {
 		
-		int[] nums = new int[] {1, 2, 3, 3, 1};
+		int[] nums = new int[] {1, 1, 2, 3};
 		System.out.println(subsetsWithDup(nums) + " -> " + subsetsWithDup(nums).size());
 	}
 	
@@ -45,6 +45,8 @@ public class FindAllSubsetsDuplicates {
         
         output.add(new ArrayList<Integer>(temp));
         for (int i = start; i < nums.length; i++) {
+        	
+        	
             if (i > start && nums[i] == nums[i-1]) continue;
             temp.add(nums[i]);
             backtrack(output, temp, nums, i+1);
