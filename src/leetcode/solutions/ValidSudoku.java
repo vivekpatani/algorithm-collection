@@ -19,6 +19,11 @@ public class ValidSudoku {
 		
 	}
 
+	/**
+	 * 
+	 * @param board
+	 * @return
+	 */
 	public static boolean isValidSudoku(char[][] board) {
         for (int i = 0; i < board.length; i++) {
             HashSet<Character> rowData = new HashSet<Character>();
