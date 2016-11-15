@@ -54,11 +54,7 @@ public class FindAllPermutations {
 				// Else add the missing number
 				temp.add(nums[i]);
 				backtrack(output, temp, nums);
-				System.out.print(temp);
 				temp.remove(temp.remove(temp.size() - 1));
-				System.out.print(" -> " + temp);
-				System.out.print(" ==== " + output);
-				System.out.println();
 				
 			}
 		}

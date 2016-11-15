@@ -3,10 +3,8 @@ package leetcode.solutions;
 /**
  * https://leetcode.com/problems/divide-two-integers/
  * 
- * @author flipswitch <<<<<<< Updated upstream Solution:
- *         https://www.careercup.com/question?id=2772 =======
+ * @author flipswitch https://www.careercup.com/question?id=2772
  *
- *         >>>>>>> Stashed changes
  */
 public class DivideTwoInteger {
 

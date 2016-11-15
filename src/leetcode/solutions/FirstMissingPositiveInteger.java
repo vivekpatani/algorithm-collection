@@ -7,7 +7,7 @@ public class FirstMissingPositiveInteger {
 		int[] nums = new int[] {-1, -2, 2, 3, 4};
 		System.out.println(findFirstMissingPositiveInteger(nums));
 		
-		nums = new int[] {0};
+		nums = new int[] {0 ,2};
 		System.out.println(findFirstMissingPositiveInteger(nums));
 	}
 	

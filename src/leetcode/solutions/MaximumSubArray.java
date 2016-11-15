@@ -1,33 +1,30 @@
 package leetcode.solutions;
 
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.Collections;
 import java.util.List;
 
 public class MaximumSubArray {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		
+		int[] nums = new int[] {-2,1,3};
+		System.out.println(maxSubArray(nums));
 	}
 	
-	public static List<List<Integer>> maxSubArray (int[] nums) {
+	public static int maxSubArray (int[] nums) {
 		
-		List<List<Integer>> output = new ArrayList<>();
-		backtrack (output, new ArrayList<Integer>(), nums, 0, Integer.MIN_VALUE);
-		return output;
+		List<Integer> output = new ArrayList<>();
+		backtrack (output, new ArrayList<Integer>(), nums, 0);
+		return Collections.max(output);
 	}
 	
-	public static void backtrack (List<List<Integer>> output, ArrayList<Integer> temp, int[] nums, int start, int max) {
+	public static void backtrack (List<Integer> output, ArrayList<Integer> temp, int[] nums, int start) {
 		
-		output.add(new ArrayList<Integer>(temp));
-		if (sum(temp) > max) {
-			max = sum(temp);
-			System.out.println(max);
-		}
+		output.add(sum(new ArrayList<Integer>(temp)));
 		for (int i = start; i < nums.length; i++) {
 			temp.add(nums[i]);
-			backtrack(output, temp, nums, start + 1, max);
+			backtrack(output, temp, nums, start + 1);
 			temp.remove(temp.size() - 1);
 		}
 	}
@@ -35,8 +32,8 @@ public class MaximumSubArray {
 	public static int sum (List<Integer> list) {
 		
 		int sum = 0;
-		for (int x: list) {
-			sum += list.get(x);
+		for (int i = 0; i < list.size(); i++) {
+			sum += list.get(i);
 		}
 		return sum;
 	}
