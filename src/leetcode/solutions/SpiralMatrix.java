@@ -15,33 +15,52 @@ public class SpiralMatrix {
 	public static List<Integer> spiralOrder(int[][] matrix) {
 		
 		List<Integer> output = new ArrayList<Integer>();
-		
-		List<Integer> top = new ArrayList<Integer>();
-		List<Integer> bottom = new ArrayList<Integer>();
-		List<Integer> right = new ArrayList<Integer>();
-		List<Integer> left = new ArrayList<Integer>();
-		int k = 0;
-		
-		for (int i = 0; i < matrix.length; i++) {
-			for (int j = 0; j < matrix[i].length; j++) {
-				top.add(matrix[i][j]);
-				right.add(matrix[j][i]);
-				bottom.add(matrix[matrix.length - i - 1][matrix[0].length - j - 1]);
-				right.add(matrix[matrix[0].length -j - 1][matrix.length - i - 1]);
+
+		if (matrix == null || matrix.length == 0) return output;
+
+		int top = 0;
+		int bottom = matrix.length - 1;
+		int left = 0;
+		int right = matrix[0].length - 1;
+		while (true) {
+			// Going from l -> r on top section
+			for (int i = top; i <= right; i++) {
+				output.add(matrix[top][i]);
 			}
-			output.addAll(new ArrayList(top));
-			output.addAll(right);
-			output.addAll(bottom);
-			output.addAll(left);
+			top++;
+
+			if (checkBoundaries(matrix, left, right, top, bottom)) break;
+
+			for (int i = top; i <= bottom; i++) {
+				output.add(matrix[i][right]);
+			}
+			right--;
+
+			if (checkBoundaries(matrix, left, right, top, bottom)) break;
 			
-			top.clear();
-			right.clear();
-			bottom.clear();
-			left.clear();
-			k++;
+			for (int i = right; i >= left; i--) {
+				output.add(matrix[bottom][i]);
+			}
+			bottom--;
+			
+			if (checkBoundaries(matrix, left, right, top, bottom)) break;
+
+			for (int i = bottom; i >= top; i--) {
+				output.add(matrix[i][left]);
+			}
+			left++;
+			
+			if (checkBoundaries(matrix, left, right, top, bottom)) break;
+
 		}
-		
 		return output;
+	}
+
+	public static boolean checkBoundaries(int[][] matrix, int left, int right, int top, int bottom) {
+
+		if (left > right || top > bottom)
+			return true;
+		return false;
 	}
 
 }
