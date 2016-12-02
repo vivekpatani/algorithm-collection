@@ -14,7 +14,6 @@ public class BinarySearchTree<E> {
 	 */
 	public BinarySearchTree() {
 		root = new Node<>();
-		;
 		size = 0;
 	}
 
