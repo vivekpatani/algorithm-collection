@@ -37,6 +37,11 @@ public class Solution7 {
 		}
 	}
 	
+	/**
+	 * Convert row and column to 0 if element in that row or column is zero
+	 * @param input
+	 * @return
+	 */
 	public static int[][] convertToZero (int[][] input) {
 		
 		boolean[] row = new boolean[input.length];

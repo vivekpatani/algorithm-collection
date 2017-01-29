@@ -17,6 +17,11 @@ public class Solution5 {
 		sc.close();
 	}
 	
+	/**
+	 * Compressing String to a given standard.
+	 * @param input
+	 * @return
+	 */
 	public static String compressor (String input) {
 		
 		StringBuffer result = new StringBuffer();

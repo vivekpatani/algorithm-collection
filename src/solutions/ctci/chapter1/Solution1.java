@@ -19,6 +19,11 @@ public class Solution1 {
 		sc.close();
 	}
 	
+	/**
+	 * Checks whether if the string is unique at all.
+	 * @param input
+	 * @return
+	 */
 	public static boolean isUnique (String input) {
 		
 		Collection<Character> charMap = new HashSet<Character>();

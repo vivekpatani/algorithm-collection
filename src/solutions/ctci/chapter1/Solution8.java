@@ -19,6 +19,12 @@ public class Solution8 {
 		sc.close();
 	}
 
+	/**
+	 * This was my interpretation of the problem
+	 * @param input
+	 * @param compare
+	 * @return
+	 */
 	public static boolean rotationWrong(String input, String compare) {
 
 		int length = input.length();
@@ -40,6 +46,12 @@ public class Solution8 {
 		return false;
 	}
 
+	/**
+	 * This is what Gayle Laackman suggested.
+	 * @param input
+	 * @param compare
+	 * @return
+	 */
 	public static boolean rotationRight(String input, String compare) {
 
 		if (input.length() != compare.length())
