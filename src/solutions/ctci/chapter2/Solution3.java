@@ -6,7 +6,7 @@ import datastructures.linkedlist.LinkedList;
 import datastructures.linkedlist.Node;
 
 /**
- * Remove element at certain location
+ * Remove element at the middle of linkedlist with only one reference.
  * @author flipswitch
  *
  */
@@ -22,35 +22,44 @@ public class Solution3 {
 		list.addAtBegining(3);
 		list.addAtBegining(4);
 		list.addAtBegining(5);
+		list.addAtBegining(6);
 		
-		Scanner sc = new Scanner (System.in);
-		int position = sc.nextInt();
-		System.out.println(position);
-		sc.close();
-		list = remove(list, position);
+		int position = 4;
+		
+		Node<Integer> current = list.getRoot();
+		
+		while (position != 0) {
+			current = current.getNext();
+			position--;
+		}
+		
+		System.out.println("Current Data: " + current.getData());
+		list = remove(current, list);
 		list.printListForward();
 
 	}
 	
-	public static LinkedList<Integer> remove (LinkedList<Integer> list, int position) {
+	/**
+	 * Remove the middle of the linkedlist
+	 * @param root
+	 * @param list
+	 * @return
+	 */
+	public static LinkedList<Integer> remove (Node<Integer> root, LinkedList<Integer> list) {
 		
-		if (list.getSize() < position) {
-			System.out.println("Duh!");
-			return list;
+		if (root.getNext() == null) return list;
+		
+		Node<Integer> forward = root.getNext();
+		
+		while (forward != null) {
+			
+			root.setData(forward.getData());
+			root.setNext(forward.getNext());
+			root = forward;
+			forward = forward.getNext();
 		}
 		
-		int count = 0;
-		Node<Integer> currentNode = list.getRoot();
-		
-		while (count!=position) {
-			currentNode = currentNode.getNext();
-			count++;
-		}
-		
-		currentNode.getPrev().setNext(currentNode.getNext());
-		currentNode = currentNode.getNext();
-		
-		
+		root.setNext(null);
 		return list;
 	}
 
