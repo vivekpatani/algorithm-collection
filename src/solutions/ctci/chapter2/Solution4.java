@@ -1,7 +1,7 @@
 package solutions.ctci.chapter2;
 
-import java.util.LinkedList;
-import java.util.Scanner;
+import datastructures.linkedlist.LinkedList;
+import datastructures.linkedlist.Node;
 
 /**
  * Split the list over x, such that elements less than x on left and greater
@@ -16,39 +16,48 @@ public class Solution4 {
 
 		LinkedList<Integer> list = new LinkedList<Integer>();
 
-		list.add(0);
-		list.add(1);
-		list.add(2);
-		list.add(3);
-		list.add(4);
-		list.add(5);
-		list.add(6);
+		list.addAtBegining(0);
+		list.addAtBegining(1);
+		list.addAtBegining(2);
+		list.addAtBegining(3);
+		list.addAtBegining(4);
+		list.addAtBegining(5);
+		list.addAtBegining(6);
 
-		Scanner sc = new Scanner(System.in);
-		int x = sc.nextInt();
-		sc.close();
-
+		int x = 3;
 		LinkedList<Integer> newList = split(list, x);
-
-		System.out.println(newList);
+		newList.printListForward();
 	}
 
+	/**
+	 * The logic here seems correct, but my LL implementation has some fault maybe.
+	 * @param list
+	 * @param x
+	 * @return
+	 */
 	public static LinkedList<Integer> split(LinkedList<Integer> list, int x) {
 
-		int length = list.size();
-		int count = 0;
-		LinkedList<Integer> output = new LinkedList<>();
-
-		while (count != length) {
-
-			if (list.get(count) >= x) {
-				output.addLast(list.get(count));
+		Node<Integer> current = list.getRoot();
+		
+		LinkedList<Integer> newList = new LinkedList<>(x);
+		Node<Integer> head = newList.getRoot();
+		Node<Integer> tail = newList.getRoot();
+		
+		while (current != null) {
+			Node<Integer> newNode = new Node<Integer>(current.getData());
+			if (current.getData() < x) {
+				newNode.setNext(head);
+				head = newNode;
 			} else {
-				output.addFirst(list.get(count));
+				tail.setNext(newNode);
+				tail = newNode;
+				tail.setNext(null);
 			}
-			count++;
+			newList.printListForward();
+			current = current.getNext();
 		}
-		return output;
+		
+		return newList;
 	}
 
 }

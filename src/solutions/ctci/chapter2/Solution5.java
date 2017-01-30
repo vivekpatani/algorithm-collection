@@ -30,6 +30,12 @@ public class Solution5 {
 
 	}
 	
+	/**
+	 * When the head points at 1's position.
+	 * @param list1
+	 * @param list2
+	 * @return
+	 */
 	public static int sum (LinkedList<Integer> list1, LinkedList<Integer> list2) {
 		
 		if (list1.size() < list2.size()) {
@@ -38,19 +44,39 @@ public class Solution5 {
 			list2 = temp;
 		}
 		
-		for (int i=0; i<list1.size()-list2.size(); i++) list2.addFirst(0);
+		LinkedList<Integer> sumList = new LinkedList<>();
+		
+		for (int i=0; i<list1.size()-list2.size(); i++) list2.addLast(0);
 		
 		int length = list1.size();
 		int sum = 0;
+		int carry = 0;
 		
 		for (int i = 0; i < list1.size(); i++) {
 			
-			sum += Math.pow(10, --length)*list1.get(i) + Math.pow(10, length)*list2.get(i);
+			int current = list1.get(i) + list2.get(i) + carry;
+			carry = current / 10;
+			current = current % 10;
+			
+			sumList.addFirst(current);
+			
 		}
 		
-		return sum;
+		StringBuilder output = new StringBuilder();
+		for (int element : sumList) {
+			output.append(element);
+		}
+		
+		return Integer.parseInt(output.toString());
 	}
 	
+	/**
+	 * When the head points at the opposite end of 1s
+	 * Incomplete
+	 * @param list1
+	 * @param list2
+	 * @return
+	 */
 	public static int reverseSum (LinkedList<Integer> list1, LinkedList<Integer> list2) {
 		
 		if (list1.size() < list2.size()) {

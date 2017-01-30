@@ -29,3 +29,7 @@
 	* Functionalities:
 		* enqueue (data) - S,C,P,D
 		* pop() - S,C,P,D
+
+## Cracking the Coding Interview
+* Chapter 1 - Completed
+* Chapter 2 - Missing 4 & 5
