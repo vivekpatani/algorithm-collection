@@ -32,4 +32,4 @@
 
 ## Cracking the Coding Interview
 * Chapter 1 - Completed
-* Chapter 2 - Missing 4 & 5
+* Chapter 2 - Missing 4,5 and 6

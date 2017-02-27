@@ -64,6 +64,14 @@ public class SortImplementation<E> {
 		displayList(g);
 		System.out.println("Time (ms): " + (endTime - startTime)/1000000.0);
 		
+		startTime = System.nanoTime();
+		int[] h = new int [] {1,1,1,1,1,0,0,0,0,2,2,2,1,1,0}; //{10, 37, 9, 80, 110, 75, 62};//{16,4,10,14,7,9,3,2,8,1};//{ 1, 2, 3, 4, 7, 8, 9, 10, 14, 16 }; //{10, 37, 9, 80, 110, 75, 62};
+		CountSort.sort(h);
+		endTime = System.nanoTime();
+		System.out.println("\nCount Sort!");
+		displayList(h);
+		System.out.println("Time (ms): " + (endTime - startTime)/1000000.0);
+		
 	}
 	
 	public static void displayList (int[] a) {

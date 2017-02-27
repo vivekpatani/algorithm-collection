@@ -39,6 +39,11 @@ public class Solution7 {
 		System.out.println(isPalin(list3));
 	}
 	
+	/**
+	 * Checks a linkedlist for being palindrome or not
+	 * @param list
+	 * @return
+	 */
 	public static boolean isPalin (LinkedList<Integer> list) {
 		
 		Stack<Integer> stack = new Stack<>();
